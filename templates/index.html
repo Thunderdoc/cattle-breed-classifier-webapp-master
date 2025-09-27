@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Indigenous Cattle Breed Classifier 🐄</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="header text-center mb-4">
+        <h1>Indigenous Cattle Breed Classifier 🐄</h1>
+        <p class="lead">Easily identify your cattle breed! Upload an image or provide a URL below.</p>
+    </div>
+    <div class="container">
+        <div class="card p-4 shadow-lg mb-4">
+            <form id="upload-form" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label for="file" class="form-label">Upload Image</label>
+                    <input class="form-control" type="file" id="file" name="file" accept="image/*">
+                </div>
+                <div class="mb-3">
+                    <label for="url" class="form-label">Or Enter Image URL</label>
+                    <input class="form-control" type="url" id="url" name="url" placeholder="https://example.com/cow.jpg">
+                </div>
+                <div class="mb-3 text-center">
+                    <img id="img-preview" src="" alt="Image Preview"
+                        style="max-width:300px; max-height:200px; display:none; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.1);" />
+                </div>
+                <button type="submit" class="btn btn-primary">Predict</button>
+                <button type="button" class="btn btn-danger" id="clear-btn">Clear</button>
+            </form>
+        </div>
+        <div id="result" class="card p-4 shadow-lg d-none">
+            <h4 class="mb-3">Prediction Results</h4>
+            <ul id="predictions" class="list-group"></ul>
+        </div>
+    </div>
+    <footer class="footer text-center mt-5">
+        <p>Made with <span style="color:#e25555;">&#10084;</span> by NextGEN Innovators for farmers and cattle enthusiasts.</p>
+    </footer>
+    <script>
+        // Image preview logic
+        const fileInput = document.getElementById('file');
+        const urlInput = document.getElementById('url');
+        const imgPreview = document.getElementById('img-preview');
+
+        fileInput.onchange = function () {
+            if (fileInput.files && fileInput.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    imgPreview.src = e.target.result;
+                    imgPreview.style.display = 'block';
+                };
+                reader.readAsDataURL(fileInput.files[0]);
+            } else {
+                imgPreview.src = '';
+                imgPreview.style.display = 'none';
+            }
+        };
+
+        urlInput.oninput = function () {
+            if (urlInput.value) {
+                imgPreview.src = urlInput.value;
+                imgPreview.style.display = 'block';
+            } else {
+                imgPreview.src = '';
+                imgPreview.style.display = 'none';
+            }
+        };
+
+        document.getElementById('upload-form').onsubmit = async function (e) {
+            e.preventDefault();
+            const fileInput = document.getElementById('file');
+            const urlInput = document.getElementById('url');
+            let res;
+            if (fileInput.files.length > 0) {
+                const formData = new FormData();
+                formData.append('file', fileInput.files[0]);
+                res = await fetch('/api/classify', { method: 'POST', body: formData });
+            } else if (urlInput.value) {
+                res = await fetch('/api/classify?url=' + encodeURIComponent(urlInput.value));
+            } else {
+                alert('Please upload an image or enter a URL.');
+                return;
+            }
+            const data = await res.json();
+            const predictions = data.predictions;
+            const predList = document.getElementById('predictions');
+            predList.innerHTML = '';
+            predictions.forEach(pred => {
+                const li = document.createElement('li');
+                li.className = 'list-group-item d-flex justify-content-between align-items-center';
+                li.innerHTML = `<span><b>${pred.class}</b></span> <span class="badge bg-success">${pred.prob}</span>`;
+                predList.appendChild(li);
+            });
+            document.getElementById('result').classList.remove('d-none');
+        };
+        document.getElementById('clear-btn').onclick = function () {
+            document.getElementById('file').value = '';
+            document.getElementById('url').value = '';
+            imgPreview.src = '';
+            imgPreview.style.display = 'none';
+            document.getElementById('result').classList.add('d-none');
+        };
+    </script>
+</body>
+
+</html>
+

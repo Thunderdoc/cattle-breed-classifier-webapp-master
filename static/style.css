@@ -1,0 +1,32 @@
+body {
+    background: linear-gradient(135deg, #f8ffae 0%, #43c6ac 100%);
+    min-height: 100vh;
+}
+.header {
+    background: #43c6ac;
+    color: white;
+    padding: 1.5rem 2rem;
+    border-radius: 0 0 1rem 1rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 12px rgba(67,198,172,0.2);
+}
+.card {
+    border-radius: 1rem;
+    background: #fffbe7;
+}
+.btn-primary {
+    background: #43c6ac;
+    border: none;
+}
+.btn-danger {
+    background: #ff6f61;
+    border: none;
+}
+.footer {
+    color: #555;
+    margin-top: 2rem;
+    font-size: 1.1rem;
+}
+.list-group-item {
+    font-size: 1.1rem;
+}
