@@ -1,0 +1,1 @@
+Gir_Cow,Sahiwal_Cow,Dangi_Cow,Khanostery_Cow,Khillar_Cow,Mehsana_Buffalo,Surti_Buffalo,Jaffarabadi_Buffalo,Banni_Buffalo,Murrah_Buffalo,Nagpuri_Buffalo,Paras_Cow,Harnal_Cow,Devni_Cow,Tharparkar_Cow,Red_Sindhi_Cow,Hariana_Cow,Bvill_Cow,Purnathadi_Cow,Goa_Cow,Sona_Cow,Khargvi_Cow,Bhagnari_Cow,Lakhori_Cow,Mursali_Cow,Kadakathri_Cow

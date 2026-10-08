@@ -1,8 +1,6 @@
 data/*
 !data/.gitkeep 
 **/.ipynb_checkpoints/
-models/
+models/*
 !models/classes.txt
-!models/final.pth
-!models/model.pkl
 .idea
