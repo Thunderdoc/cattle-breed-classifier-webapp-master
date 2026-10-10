@@ -48,6 +48,11 @@ export default function Breeds() {
           Registered breeds and locally-recognised landraces, each with provenance, physical descriptors and production
           ranges compiled from NBAGR descriptors and livestock literature.
         </p>
+        {data && (
+          <p className="faint mono mt-2" style={{ fontSize: '.72rem', letterSpacing: '.12em', textTransform: 'uppercase' }}>
+            {data.breeds.filter((b) => b.image).length} of {data.breeds.length} entries carry a reference photograph · the rest are drawn colour plates
+          </p>
+        )}
       </div>
 
       <div className="container" style={{ paddingBottom: '4rem' }}>

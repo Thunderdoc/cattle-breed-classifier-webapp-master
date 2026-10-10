@@ -13,8 +13,10 @@ const METRICS = [
 
 export default function ModelCard() {
   const [system, setSystem] = useState(null);
+  const [samples, setSamples] = useState([]);
   useEffect(() => {
     api.system().then(setSystem).catch(() => {});
+    api.samples().then(setSamples).catch(() => {});
   }, []);
 
   return (
@@ -114,6 +116,36 @@ export default function ModelCard() {
             ) : (
               <p className="dim">Instance metadata unavailable.</p>
             )}
+          </div>
+        </Reveal>
+
+        <Reveal>
+          <div className="card">
+            <h2 className="card-title mb-3">Bundled reference dataset</h2>
+            <p className="dim mb-3" style={{ fontSize: '.92rem', maxWidth: '78ch' }}>
+              The service ships a small, real reference set: one verified field photograph per covered breed,
+              served from <code className="mono">/static/dataset/</code> and used by the studio&apos;s sample picker,
+              the catalogue plates and the demo engine&apos;s prototypes. Every image carries its provenance.
+            </p>
+            <div className="card card-flat" style={{ overflowX: 'auto' }}>
+              <table className="table">
+                <thead>
+                  <tr><th>Plate</th><th>Breed</th><th>File</th><th>Provenance</th></tr>
+                </thead>
+                <tbody>
+                  {samples.map((s, i) => (
+                    <tr key={s.url}>
+                      <td>
+                        <img src={s.url} alt={s.name} style={{ width: 56, height: 42, objectFit: 'cover', border: '1px solid var(--line-2)', borderRadius: 3 }} loading="lazy" />
+                      </td>
+                      <td style={{ color: 'var(--ink)' }}>{s.name}</td>
+                      <td><code>/static/dataset/{s.url.split('/').pop()}</code></td>
+                      <td>{s.credit || '—'}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
         </Reveal>
 
