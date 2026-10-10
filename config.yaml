@@ -44,18 +44,18 @@ model:
   file_name: "cattle_breed_classifier_full_model.pth"
   classes_name: "classes.txt"
 
-# Bundled sample images served from /static/samples (same-origin, CSP-safe)
+# Bundled real reference photos served from /static/dataset (same-origin, CSP-safe)
 sampleImages:
   - name: "Gir Cow"
-    url: "/static/samples/gir-cow.jpg"
+    url: "/static/dataset/gir-cow.jpg"
   - name: "Murrah Buffalo"
-    url: "/static/samples/murrah-buffalo.jpg"
+    url: "/static/dataset/murrah-buffalo.jpg"
   - name: "Sahiwal Cow"
-    url: "/static/samples/sahiwal-cow.jpg"
+    url: "/static/dataset/sahiwal-cow.jpg"
   - name: "Dangi Cow"
-    url: "/static/samples/dangi-cow.jpg"
+    url: "/static/dataset/dangi-cow.jpg"
   - name: "White Bull"
-    url: "/static/samples/white-bull.jpg"
+    url: "/static/dataset/white-bull.jpg"
 
 # API surface
 api:

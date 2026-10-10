@@ -1,0 +1,62 @@
+[
+  {
+    "file": "gir-cow.jpg",
+    "breed": "gir-cow",
+    "name": "Gir Cow",
+    "credit": "The Rajasthan Express (press photo)"
+  },
+  {
+    "file": "sahiwal-cow.jpg",
+    "breed": "sahiwal-cow",
+    "name": "Sahiwal Cow",
+    "credit": "Karnal Dairy Farm via TradeIndia"
+  },
+  {
+    "file": "red-sindhi-cow.jpg",
+    "breed": "red-sindhi-cow",
+    "name": "Red Sindhi Cow",
+    "credit": "Public web photo (Pinterest: red-gold)"
+  },
+  {
+    "file": "murrah-buffalo.jpg",
+    "breed": "murrah-buffalo",
+    "name": "Murrah Buffalo",
+    "credit": "Pexels (free license)"
+  },
+  {
+    "file": "mehsana-buffalo.jpg",
+    "breed": "mehsana-buffalo",
+    "name": "Mehsana Buffalo",
+    "credit": "Times of Agriculture"
+  },
+  {
+    "file": "tharparkar-cow.jpg",
+    "breed": "tharparkar-cow",
+    "name": "Tharparkar Cow & Bull",
+    "credit": "The Rajasthan Express (press photo)"
+  },
+  {
+    "file": "khillar-cow.jpg",
+    "breed": "khillar-cow",
+    "name": "Khillar Cow",
+    "credit": "TractorKarvan breed guide"
+  },
+  {
+    "file": "surti-buffalo.jpg",
+    "breed": "surti-buffalo",
+    "name": "Surti Buffalo",
+    "credit": "TractorKarvan breed guide"
+  },
+  {
+    "file": "dangi-cow.jpg",
+    "breed": "dangi-cow",
+    "name": "Dangi Cow",
+    "credit": "golx.org breed archive"
+  },
+  {
+    "file": "white-bull.jpg",
+    "breed": null,
+    "name": "White Bull (draft type)",
+    "credit": "Original project assets"
+  }
+]

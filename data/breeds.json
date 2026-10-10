@@ -12,16 +12,41 @@
       "species": "cattle",
       "utility": "milch",
       "status": "registered",
-      "origin": { "country": "India", "state": "Gujarat", "regions": ["Gir Somnath", "Junagadh", "Amreli", "Bhavnagar"] },
+      "origin": {
+        "country": "India",
+        "state": "Gujarat",
+        "regions": [
+          "Gir Somnath",
+          "Junagadh",
+          "Amreli",
+          "Bhavnagar"
+        ]
+      },
       "coat": "Shining red to red-and-white speckled; some animals almost white",
-      "color_rgb": [186, 118, 92],
+      "color_rgb": [
+        186,
+        118,
+        92
+      ],
       "horns": "Long, curving backwards then forwards in a distinctive half-moon",
-      "milk_yield_kg": [1200, 1800],
-      "milk_fat_pct": [4.5, 5.5],
+      "milk_yield_kg": [
+        1200,
+        1800
+      ],
+      "milk_fat_pct": [
+        4.5,
+        5.5
+      ],
       "temperament": "Docile and affectionate",
-      "traits": ["Prominent convex (domed) forehead", "Pendulous dewlap and long drooping ears", "High heat and tick tolerance", "Famous A2 milk profile"],
+      "traits": [
+        "Prominent convex (domed) forehead",
+        "Pendulous dewlap and long drooping ears",
+        "High heat and tick tolerance",
+        "Famous A2 milk profile"
+      ],
       "summary": "The flagship dairy breed of India, originating in the Gir forests of Saurashtra. Gir cattle are exported worldwide — most famously to Brazil, where they anchor a multi-billion dollar dairy industry.",
-      "fun_fact": "Gir bulls founded the Brazilian 'Gir Leiteiro' line, which today produces more milk per animal than the breed's Indian homeland herd."
+      "fun_fact": "Gir bulls founded the Brazilian 'Gir Leiteiro' line, which today produces more milk per animal than the breed's Indian homeland herd.",
+      "image": "/static/dataset/gir-cow.jpg"
     },
     {
       "slug": "sahiwal-cow",
@@ -30,16 +55,40 @@
       "species": "cattle",
       "utility": "milch",
       "status": "registered",
-      "origin": { "country": "India / Pakistan", "state": "Punjab", "regions": ["Montgomery (Sahiwal) district", "Ferozepur", "Amritsar"] },
+      "origin": {
+        "country": "India / Pakistan",
+        "state": "Punjab",
+        "regions": [
+          "Montgomery (Sahiwal) district",
+          "Ferozepur",
+          "Amritsar"
+        ]
+      },
       "coat": "Reddish-dun to pale red, occasionally white patches on neck and brisket",
-      "color_rgb": [168, 98, 66],
+      "color_rgb": [
+        168,
+        98,
+        66
+      ],
       "horns": "Short, stumpy and thick at the base",
-      "milk_yield_kg": [1400, 2200],
-      "milk_fat_pct": [4.2, 5.2],
+      "milk_yield_kg": [
+        1400,
+        2200
+      ],
+      "milk_fat_pct": [
+        4.2,
+        5.2
+      ],
       "temperament": "Calm, easily handled",
-      "traits": ["Best tropical dairy cattle for heat tolerance", "Strong resistance to ticks and internal parasites", "Symmetrical, well-attached udder", "Used to upgrade dairy herds across Africa and Australia"],
+      "traits": [
+        "Best tropical dairy cattle for heat tolerance",
+        "Strong resistance to ticks and internal parasites",
+        "Symmetrical, well-attached udder",
+        "Used to upgrade dairy herds across Africa and Australia"
+      ],
       "summary": "Often called the best of the indigenous milch breeds, Sahiwal combines respectable yield with exceptional hardiness in hot, tick-infested climates.",
-      "fun_fact": "Australian and Kenyan dairy programs crossed Sahiwal with Holstein-Friesian to create heat-tolerant composite breeds such as the Australian Milking Zebu."
+      "fun_fact": "Australian and Kenyan dairy programs crossed Sahiwal with Holstein-Friesian to create heat-tolerant composite breeds such as the Australian Milking Zebu.",
+      "image": "/static/dataset/sahiwal-cow.jpg"
     },
     {
       "slug": "dangi-cow",
@@ -48,16 +97,40 @@
       "species": "cattle",
       "utility": "dual",
       "status": "registered",
-      "origin": { "country": "India", "state": "Maharashtra", "regions": ["Dang district", "Sahyadri hills", "Nashik fringe"] },
+      "origin": {
+        "country": "India",
+        "state": "Maharashtra",
+        "regions": [
+          "Dang district",
+          "Sahyadri hills",
+          "Nashik fringe"
+        ]
+      },
       "coat": "Distinct white coat with irregular red or brown spots",
-      "color_rgb": [208, 184, 170],
+      "color_rgb": [
+        208,
+        184,
+        170
+      ],
       "horns": "Medium, curved upwards and slightly inward",
-      "milk_yield_kg": [400, 700],
-      "milk_fat_pct": [4.3, 5.0],
+      "milk_yield_kg": [
+        400,
+        700
+      ],
+      "milk_fat_pct": [
+        4.3,
+        5.0
+      ],
       "temperament": "Active and agile",
-      "traits": ["Thrives in heavy-rainfall, hilly terrain", "Sure-footed draught animal on wet slopes", "Distinctive spotted coat pattern", "Secretes an oily substance from skin that protects against rain"],
+      "traits": [
+        "Thrives in heavy-rainfall, hilly terrain",
+        "Sure-footed draught animal on wet slopes",
+        "Distinctive spotted coat pattern",
+        "Secretes an oily substance from skin that protects against rain"
+      ],
       "summary": "A hardy hill cattle breed from the Sahyadri ranges, prized for draught work in the wet, undulating terrain of the Dang district.",
-      "fun_fact": "Dangi cattle skin exudes an oily secretion believed to waterproof the coat — a rare adaptation among Indian cattle to monsoon climates."
+      "fun_fact": "Dangi cattle skin exudes an oily secretion believed to waterproof the coat — a rare adaptation among Indian cattle to monsoon climates.",
+      "image": "/static/dataset/dangi-cow.jpg"
     },
     {
       "slug": "khanostery-cow",
@@ -66,14 +139,34 @@
       "species": "cattle",
       "utility": "dual",
       "status": "landrace",
-      "origin": { "country": "India", "state": "North-western hills", "regions": ["Local hill tracts"] },
+      "origin": {
+        "country": "India",
+        "state": "North-western hills",
+        "regions": [
+          "Local hill tracts"
+        ]
+      },
       "coat": "Grey to brown, occasionally pied",
-      "color_rgb": [150, 140, 130],
+      "color_rgb": [
+        150,
+        140,
+        130
+      ],
       "horns": "Medium, directed outward and upward",
-      "milk_yield_kg": [300, 600],
-      "milk_fat_pct": [4.4, 5.2],
+      "milk_yield_kg": [
+        300,
+        600
+      ],
+      "milk_fat_pct": [
+        4.4,
+        5.2
+      ],
       "temperament": "Hardy, semi-foraging",
-      "traits": ["Adapted to marginal hill grazing", "Low-input management", "Valued as draught and manure source"],
+      "traits": [
+        "Adapted to marginal hill grazing",
+        "Low-input management",
+        "Valued as draught and manure source"
+      ],
       "summary": "A locally recognised hill landrace maintained by smallholder and pastoral communities; formal descriptor documentation is limited.",
       "fun_fact": "Hill landraces like Khanostery are genetic reservoirs of altitude and cold tolerance traits."
     },
@@ -84,16 +177,41 @@
       "species": "cattle",
       "utility": "draught",
       "status": "registered",
-      "origin": { "country": "India", "state": "Maharashtra / Karnataka", "regions": ["Deccan plateau", "Solapur", "Bijapur", "Osmanabad"] },
+      "origin": {
+        "country": "India",
+        "state": "Maharashtra / Karnataka",
+        "regions": [
+          "Deccan plateau",
+          "Solapur",
+          "Bijapur",
+          "Osmanabad"
+        ]
+      },
       "coat": "White or grey; males often grey over the neck and hump",
-      "color_rgb": [214, 211, 204],
+      "color_rgb": [
+        214,
+        211,
+        204
+      ],
       "horns": "Short, thick, emerging sideways then curving forward",
-      "milk_yield_kg": [400, 700],
-      "milk_fat_pct": [4.4, 5.0],
+      "milk_yield_kg": [
+        400,
+        700
+      ],
+      "milk_fat_pct": [
+        4.4,
+        5.0
+      ],
       "temperament": "Energetic and powerful",
-      "traits": ["Compact, muscular draught build", "Famous for fast trotting pace", "Thrives on dry Deccan pasture", "Bullocks prized for heavy cart work"],
+      "traits": [
+        "Compact, muscular draught build",
+        "Famous for fast trotting pace",
+        "Thrives on dry Deccan pasture",
+        "Bullocks prized for heavy cart work"
+      ],
       "summary": "A classic Deccan draught breed whose bullocks are legendary for speed and endurance under the yoke on the black-cotton-soil plateau.",
-      "fun_fact": "Khillar bullocks were historically preferred for long-distance carting between Deccan market towns, covering 40+ km a day."
+      "fun_fact": "Khillar bullocks were historically preferred for long-distance carting between Deccan market towns, covering 40+ km a day.",
+      "image": "/static/dataset/khillar-cow.jpg"
     },
     {
       "slug": "mehsana-buffalo",
@@ -102,16 +220,40 @@
       "species": "buffalo",
       "utility": "dual",
       "status": "registered",
-      "origin": { "country": "India", "state": "Gujarat", "regions": ["Mehsana", "Banaskantha", "Sabarkantha"] },
+      "origin": {
+        "country": "India",
+        "state": "Gujarat",
+        "regions": [
+          "Mehsana",
+          "Banaskantha",
+          "Sabarkantha"
+        ]
+      },
       "coat": "Black or grey-black, often with white markings on face, legs and tail tip",
-      "color_rgb": [42, 40, 38],
+      "color_rgb": [
+        42,
+        40,
+        38
+      ],
       "horns": "Long, curved and slightly sickle-shaped",
-      "milk_yield_kg": [1200, 1800],
-      "milk_fat_pct": [6.5, 8.0],
+      "milk_yield_kg": [
+        1200,
+        1800
+      ],
+      "milk_fat_pct": [
+        6.5,
+        8.0
+      ],
       "temperament": "Docile",
-      "traits": ["Believed to be a Murrah × Surti cross", "Long lactation length", "White face patch ('goggle' marking) common", "Backbone of Gujarat's cooperative dairy"],
+      "traits": [
+        "Believed to be a Murrah × Surti cross",
+        "Long lactation length",
+        "White face patch ('goggle' marking) common",
+        "Backbone of Gujarat's cooperative dairy"
+      ],
       "summary": "A dependable dual-purpose buffalo from north Gujarat, combining Murrah milking ability with Surti hardiness; a mainstay of dairy cooperatives.",
-      "fun_fact": "Mehsana buffaloes are among the longest-lactating Indian buffaloes, with lactations routinely exceeding 300 days."
+      "fun_fact": "Mehsana buffaloes are among the longest-lactating Indian buffaloes, with lactations routinely exceeding 300 days.",
+      "image": "/static/dataset/mehsana-buffalo.jpg"
     },
     {
       "slug": "surti-buffalo",
@@ -120,16 +262,41 @@
       "species": "buffalo",
       "utility": "milch",
       "status": "registered",
-      "origin": { "country": "India", "state": "Gujarat", "regions": ["Surat", "Kheda (Kaira)", "Vadodara", "Bharuch"] },
+      "origin": {
+        "country": "India",
+        "state": "Gujarat",
+        "regions": [
+          "Surat",
+          "Kheda (Kaira)",
+          "Vadodara",
+          "Bharuch"
+        ]
+      },
       "coat": "Rusty black to dark brown; two characteristic white bands ('chevrons') around the barrel",
-      "color_rgb": [48, 38, 32],
+      "color_rgb": [
+        48,
+        38,
+        32
+      ],
       "horns": "Long, flat and sickle-shaped, curving backwards",
-      "milk_yield_kg": [900, 1300],
-      "milk_fat_pct": [8.0, 12.0],
+      "milk_yield_kg": [
+        900,
+        1300
+      ],
+      "milk_fat_pct": [
+        8.0,
+        12.0
+      ],
       "temperament": "Gentle",
-      "traits": ["Very high milk fat — up to 12%", "Distinctive double white chevron markings", "Well-suited to marshy riverine tracts", "Popular for ghee production"],
+      "traits": [
+        "Very high milk fat — up to 12%",
+        "Distinctive double white chevron markings",
+        "Well-suited to marshy riverine tracts",
+        "Popular for ghee production"
+      ],
       "summary": "A compact riverine buffalo from south Gujarat famous for extremely rich, high-fat milk — ideal for ghee and premium dairy products.",
-      "fun_fact": "Surti milk fat can reach 12%, nearly triple that of typical dairy cattle, making it the 'cream' of Indian buffalo breeds."
+      "fun_fact": "Surti milk fat can reach 12%, nearly triple that of typical dairy cattle, making it the 'cream' of Indian buffalo breeds.",
+      "image": "/static/dataset/surti-buffalo.jpg"
     },
     {
       "slug": "jaffarabadi-buffalo",
@@ -138,14 +305,38 @@
       "species": "buffalo",
       "utility": "milch",
       "status": "registered",
-      "origin": { "country": "India", "state": "Gujarat", "regions": ["Junagadh", "Jaffarabad", "Amreli", "Bhavnagar"] },
+      "origin": {
+        "country": "India",
+        "state": "Gujarat",
+        "regions": [
+          "Junagadh",
+          "Jaffarabad",
+          "Amreli",
+          "Bhavnagar"
+        ]
+      },
       "coat": "Deep black, occasionally copper-toned",
-      "color_rgb": [30, 28, 26],
+      "color_rgb": [
+        30,
+        28,
+        26
+      ],
       "horns": "Heavy, emerging downward then curving up in a ring-like shape",
-      "milk_yield_kg": [1300, 1800],
-      "milk_fat_pct": [7.0, 8.5],
+      "milk_yield_kg": [
+        1300,
+        1800
+      ],
+      "milk_fat_pct": [
+        7.0,
+        8.5
+      ],
       "temperament": "Quiet but massive",
-      "traits": ["Heaviest Indian buffalo breed", "Massive head and bulging forehead", "Prominent drooping horn pattern", "High fat yield"],
+      "traits": [
+        "Heaviest Indian buffalo breed",
+        "Massive head and bulging forehead",
+        "Prominent drooping horn pattern",
+        "High fat yield"
+      ],
       "summary": "The giant of Indian buffaloes, bred in the coastal tracts of Saurashtra; heavy-bodied, high-fat milchers maintained largely by traditional herders.",
       "fun_fact": "Adult Jaffarabadi bulls can exceed 900 kg, making them the heaviest riverine buffalo in India."
     },
@@ -156,14 +347,35 @@
       "species": "buffalo",
       "utility": "dual",
       "status": "registered",
-      "origin": { "country": "India", "state": "Gujarat", "regions": ["Banni grasslands, Kutch"] },
+      "origin": {
+        "country": "India",
+        "state": "Gujarat",
+        "regions": [
+          "Banni grasslands, Kutch"
+        ]
+      },
       "coat": "Black to grey-black, occasionally white patches",
-      "color_rgb": [52, 50, 47],
+      "color_rgb": [
+        52,
+        50,
+        47
+      ],
       "horns": "Medium, flat and curved backwards",
-      "milk_yield_kg": [900, 1400],
-      "milk_fat_pct": [6.5, 8.0],
+      "milk_yield_kg": [
+        900,
+        1400
+      ],
+      "milk_fat_pct": [
+        6.5,
+        8.0
+      ],
       "temperament": "Extremely hardy",
-      "traits": ["Grazes saline Banni grasslands at night", "Walks 5–10 km nightly for forage", "Tolerates drought and scarce water", "Recognised as a distinct breed in 2011"],
+      "traits": [
+        "Grazes saline Banni grasslands at night",
+        "Walks 5–10 km nightly for forage",
+        "Tolerates drought and scarce water",
+        "Recognised as a distinct breed in 2011"
+      ],
       "summary": "A recently recognised, exceptionally resilient buffalo of the Kutch salt marshes, maintained by nomadic Maldhari herders on sparse, saline forage.",
       "fun_fact": "Banni buffaloes graze almost entirely at night across the salt-affected Banni grassland — a behaviour unique among Indian buffalo breeds."
     },
@@ -174,16 +386,41 @@
       "species": "buffalo",
       "utility": "milch",
       "status": "registered",
-      "origin": { "country": "India", "state": "Haryana / Punjab", "regions": ["Rohtak", "Hisar", "Jind", "Karnal"] },
+      "origin": {
+        "country": "India",
+        "state": "Haryana / Punjab",
+        "regions": [
+          "Rohtak",
+          "Hisar",
+          "Jind",
+          "Karnal"
+        ]
+      },
       "coat": "Jet black, with white switch on tail; occasionally dark brown",
-      "color_rgb": [26, 24, 22],
+      "color_rgb": [
+        26,
+        24,
+        22
+      ],
       "horns": "Short, tightly curled in a characteristic spiral",
-      "milk_yield_kg": [1600, 2500],
-      "milk_fat_pct": [6.5, 8.0],
+      "milk_yield_kg": [
+        1600,
+        2500
+      ],
+      "milk_fat_pct": [
+        6.5,
+        8.0
+      ],
       "temperament": "Docile and responsive",
-      "traits": ["India's premier milch buffalo", "Tightly curled horns are the breed hallmark", "Used globally to upgrade buffalo herds", "Strong feed conversion on green fodder"],
+      "traits": [
+        "India's premier milch buffalo",
+        "Tightly curled horns are the breed hallmark",
+        "Used globally to upgrade buffalo herds",
+        "Strong feed conversion on green fodder"
+      ],
       "summary": "The world's most influential riverine dairy buffalo, originating in Haryana; Murrah genetics underpin buffalo improvement programs from Brazil to the Philippines.",
-      "fun_fact": "The record-holding Murrah bull 'Sultan' lineage semen has been exported to over 30 countries for buffalo improvement."
+      "fun_fact": "The record-holding Murrah bull 'Sultan' lineage semen has been exported to over 30 countries for buffalo improvement.",
+      "image": "/static/dataset/murrah-buffalo.jpg"
     },
     {
       "slug": "nagpuri-buffalo",
@@ -192,14 +429,37 @@
       "species": "buffalo",
       "utility": "dual",
       "status": "registered",
-      "origin": { "country": "India", "state": "Maharashtra", "regions": ["Nagpur", "Akola", "Amravati (Vidarbha)"] },
+      "origin": {
+        "country": "India",
+        "state": "Maharashtra",
+        "regions": [
+          "Nagpur",
+          "Akola",
+          "Amravati (Vidarbha)"
+        ]
+      },
       "coat": "Black, sometimes deep brown with white facial streaks",
-      "color_rgb": [34, 32, 30],
+      "color_rgb": [
+        34,
+        32,
+        30
+      ],
       "horns": "Long, flat and curved, sweeping backwards beside the neck",
-      "milk_yield_kg": [800, 1300],
-      "milk_fat_pct": [7.0, 8.5],
+      "milk_yield_kg": [
+        800,
+        1300
+      ],
+      "milk_fat_pct": [
+        7.0,
+        8.5
+      ],
       "temperament": "Hardy, heat tolerant",
-      "traits": ["Long sword-like horns", "Tolerates hot, dry Vidarbha climate", "Dual purpose: milk and draught", "Also called Elitpur or Barari"],
+      "traits": [
+        "Long sword-like horns",
+        "Tolerates hot, dry Vidarbha climate",
+        "Dual purpose: milk and draught",
+        "Also called Elitpur or Barari"
+      ],
       "summary": "The buffalo of the Vidarbha plains, recognised by its long, flat, backward-swept horns and ability to work and milk in harsh heat.",
       "fun_fact": "Nagpuri horn length can exceed one metre tip-to-tip, among the longest of any Indian buffalo."
     },
@@ -210,14 +470,34 @@
       "species": "cattle",
       "utility": "dual",
       "status": "landrace",
-      "origin": { "country": "India", "state": "Peninsular India", "regions": ["Local tracts"] },
+      "origin": {
+        "country": "India",
+        "state": "Peninsular India",
+        "regions": [
+          "Local tracts"
+        ]
+      },
       "coat": "Grey-brown to fawn",
-      "color_rgb": [160, 140, 120],
+      "color_rgb": [
+        160,
+        140,
+        120
+      ],
       "horns": "Medium, curved upward",
-      "milk_yield_kg": [400, 800],
-      "milk_fat_pct": [4.3, 5.0],
+      "milk_yield_kg": [
+        400,
+        800
+      ],
+      "milk_fat_pct": [
+        4.3,
+        5.0
+      ],
       "temperament": "Steady",
-      "traits": ["Maintained under low-input smallholder systems", "Dual purpose milk and draught", "Adapted to local fodder regimes"],
+      "traits": [
+        "Maintained under low-input smallholder systems",
+        "Dual purpose milk and draught",
+        "Adapted to local fodder regimes"
+      ],
       "summary": "A locally recognised dual-purpose landrace; formal national descriptor documentation is limited and herds are maintained by regional farming communities.",
       "fun_fact": "Landrace populations such as Paras preserve allele diversity that registered breeds have narrowed."
     },
@@ -228,14 +508,34 @@
       "species": "cattle",
       "utility": "dual",
       "status": "landrace",
-      "origin": { "country": "India", "state": "Maharashtra / Karnataka border", "regions": ["Deccan tracts"] },
+      "origin": {
+        "country": "India",
+        "state": "Maharashtra / Karnataka border",
+        "regions": [
+          "Deccan tracts"
+        ]
+      },
       "coat": "Grey-white, darker in males",
-      "color_rgb": [142, 132, 122],
+      "color_rgb": [
+        142,
+        132,
+        122
+      ],
       "horns": "Medium, springing outward and curving up",
-      "milk_yield_kg": [400, 700],
-      "milk_fat_pct": [4.2, 4.9],
+      "milk_yield_kg": [
+        400,
+        700
+      ],
+      "milk_fat_pct": [
+        4.2,
+        4.9
+      ],
       "temperament": "Active",
-      "traits": ["Draught-oriented build", "Suited to semi-arid plateau grazing", "Bullocks used for carting and ploughing"],
+      "traits": [
+        "Draught-oriented build",
+        "Suited to semi-arid plateau grazing",
+        "Bullocks used for carting and ploughing"
+      ],
       "summary": "A Deccan plateau landrace valued chiefly for draught bullocks, with cows contributing household milk under extensive management.",
       "fun_fact": "Deccan draught landraces historically moved with seasonal crop cycles across plateau districts."
     },
@@ -246,14 +546,38 @@
       "species": "cattle",
       "utility": "dual",
       "status": "registered",
-      "origin": { "country": "India", "state": "Maharashtra / Karnataka / Telangana", "regions": ["Nizamabad", "Bidar", "Latur", "Nanded"] },
+      "origin": {
+        "country": "India",
+        "state": "Maharashtra / Karnataka / Telangana",
+        "regions": [
+          "Nizamabad",
+          "Bidar",
+          "Latur",
+          "Nanded"
+        ]
+      },
       "coat": "Black-and-white spotted; the 'Balankya' complete-white pattern is prized",
-      "color_rgb": [118, 108, 102],
+      "color_rgb": [
+        118,
+        108,
+        102
+      ],
       "horns": "Medium, bent backwards and upwards",
-      "milk_yield_kg": [700, 1100],
-      "milk_fat_pct": [4.0, 4.8],
+      "milk_yield_kg": [
+        700,
+        1100
+      ],
+      "milk_fat_pct": [
+        4.0,
+        4.8
+      ],
       "temperament": "Docile",
-      "traits": ["Striking spotted coat ('Balankya', 'Wannera' patterns)", "Dual purpose with good draught bullocks", "Tolerant of semi-arid Deccan climate", "Recognised breed since 1970s"],
+      "traits": [
+        "Striking spotted coat ('Balankya', 'Wannera' patterns)",
+        "Dual purpose with good draught bullocks",
+        "Tolerant of semi-arid Deccan climate",
+        "Recognised breed since 1970s"
+      ],
       "summary": "A spotted dual-purpose breed of the Deccan, known for patterned coats and reliable bullocks for medium-farm draught work.",
       "fun_fact": "Deoni coat patterns have local names — a fully white animal is called 'Balankya' and commands premium prices at fairs."
     },
@@ -264,16 +588,40 @@
       "species": "cattle",
       "utility": "dual",
       "status": "registered",
-      "origin": { "country": "India / Pakistan", "state": "Rajasthan / Sindh", "regions": ["Jaisalmer", "Barmer", "Thar desert"] },
+      "origin": {
+        "country": "India / Pakistan",
+        "state": "Rajasthan / Sindh",
+        "regions": [
+          "Jaisalmer",
+          "Barmer",
+          "Thar desert"
+        ]
+      },
       "coat": "White to grey, deepening on the neck in males",
-      "color_rgb": [222, 218, 210],
+      "color_rgb": [
+        222,
+        218,
+        210
+      ],
       "horns": "Medium, curving upwards and outward",
-      "milk_yield_kg": [1100, 1800],
-      "milk_fat_pct": [4.4, 5.2],
+      "milk_yield_kg": [
+        1100,
+        1800
+      ],
+      "milk_fat_pct": [
+        4.4,
+        5.2
+      ],
       "temperament": "Gentle and hardy",
-      "traits": ["Also called White Sindhi or Gray Sindhi", "Survives extreme desert heat and drought", "Good milker for a drought breed", "Long-distance migratory grazing"],
+      "traits": [
+        "Also called White Sindhi or Gray Sindhi",
+        "Survives extreme desert heat and drought",
+        "Good milker for a drought breed",
+        "Long-distance migratory grazing"
+      ],
       "summary": "The desert cattle of the Thar, combining genuine milking ability with unmatched drought endurance — a lifeline breed for arid-zone pastoralists.",
-      "fun_fact": "Tharparkar herds trek across the Thar with nomadic herders, surviving on sparse scrub that would starve most dairy breeds."
+      "fun_fact": "Tharparkar herds trek across the Thar with nomadic herders, surviving on sparse scrub that would starve most dairy breeds.",
+      "image": "/static/dataset/tharparkar-cow.jpg"
     },
     {
       "slug": "red-sindhi-cow",
@@ -282,16 +630,40 @@
       "species": "cattle",
       "utility": "milch",
       "status": "registered",
-      "origin": { "country": "India / Pakistan", "state": "Sindh", "regions": ["Karachi", "Hyderabad", "Sukkur tracts"] },
+      "origin": {
+        "country": "India / Pakistan",
+        "state": "Sindh",
+        "regions": [
+          "Karachi",
+          "Hyderabad",
+          "Sukkur tracts"
+        ]
+      },
       "coat": "Deep reddish-brown to dark red, darker in males",
-      "color_rgb": [150, 62, 44],
+      "color_rgb": [
+        150,
+        62,
+        44
+      ],
       "horns": "Short and thick, emerging sideways",
-      "milk_yield_kg": [1100, 1700],
-      "milk_fat_pct": [4.4, 5.2],
+      "milk_yield_kg": [
+        1100,
+        1700
+      ],
+      "milk_fat_pct": [
+        4.4,
+        5.2
+      ],
       "temperament": "Docile",
-      "traits": ["Also called Red Karachi or Sindhi", "Outstanding heat tolerance", "Compact, well-formed udder", "Used in tropical crossbreeding programs"],
+      "traits": [
+        "Also called Red Karachi or Sindhi",
+        "Outstanding heat tolerance",
+        "Compact, well-formed udder",
+        "Used in tropical crossbreeding programs"
+      ],
       "summary": "A richly coloured tropical dairy breed from Sindh, exported for decades to upgrade hot-climate dairy herds across Asia, Africa and the Americas.",
-      "fun_fact": "Red Sindhi genetics contributed to the Jamaican 'Jamaica Hope' composite, bred specifically for tropical dairy farming."
+      "fun_fact": "Red Sindhi genetics contributed to the Jamaican 'Jamaica Hope' composite, bred specifically for tropical dairy farming.",
+      "image": "/static/dataset/red-sindhi-cow.jpg"
     },
     {
       "slug": "hariana-cow",
@@ -300,14 +672,38 @@
       "species": "cattle",
       "utility": "dual",
       "status": "registered",
-      "origin": { "country": "India", "state": "Haryana / Punjab", "regions": ["Rohtak", "Hisar", "Karnal", "Jind"] },
+      "origin": {
+        "country": "India",
+        "state": "Haryana / Punjab",
+        "regions": [
+          "Rohtak",
+          "Hisar",
+          "Karnal",
+          "Jind"
+        ]
+      },
       "coat": "White to grey; males grey over neck and hump",
-      "color_rgb": [225, 222, 215],
+      "color_rgb": [
+        225,
+        222,
+        215
+      ],
       "horns": "Short, stumpy, curving upwards",
-      "milk_yield_kg": [600, 1200],
-      "milk_fat_pct": [4.3, 5.0],
+      "milk_yield_kg": [
+        600,
+        1200
+      ],
+      "milk_fat_pct": [
+        4.3,
+        5.0
+      ],
       "temperament": "Powerful and willing",
-      "traits": ["Premier draught bullocks of north India", "Thrives on crop residues and fodder", "Grey shading intensifies in working males", "One of the oldest described Indian breeds"],
+      "traits": [
+        "Premier draught bullocks of north India",
+        "Thrives on crop residues and fodder",
+        "Grey shading intensifies in working males",
+        "One of the oldest described Indian breeds"
+      ],
       "summary": "The classic dual-purpose cattle of the Haryana plains, whose bullocks have pulled India's farm carts for centuries while cows supply household milk.",
       "fun_fact": "Hariana bullocks were the workhorses of Punjab canal-colony agriculture, prized for stamina in heavy clay soils."
     },
@@ -318,14 +714,34 @@
       "species": "cattle",
       "utility": "dual",
       "status": "landrace",
-      "origin": { "country": "India", "state": "Regional tract", "regions": ["Local herds"] },
+      "origin": {
+        "country": "India",
+        "state": "Regional tract",
+        "regions": [
+          "Local herds"
+        ]
+      },
       "coat": "Fawn to grey-brown",
-      "color_rgb": [170, 150, 130],
+      "color_rgb": [
+        170,
+        150,
+        130
+      ],
       "horns": "Medium, variable",
-      "milk_yield_kg": [300, 700],
-      "milk_fat_pct": [4.3, 5.1],
+      "milk_yield_kg": [
+        300,
+        700
+      ],
+      "milk_fat_pct": [
+        4.3,
+        5.1
+      ],
       "temperament": "Hardy",
-      "traits": ["Maintained by local communities", "Low-input, extensive management", "Contributes regional genetic diversity"],
+      "traits": [
+        "Maintained by local communities",
+        "Low-input, extensive management",
+        "Contributes regional genetic diversity"
+      ],
       "summary": "A locally recognised landrace population; formal descriptor records are limited, and the type is preserved mainly through community herds.",
       "fun_fact": "Many Indian landraces remain undocumented genetically — each is a living library of local adaptation."
     },
@@ -336,14 +752,34 @@
       "species": "cattle",
       "utility": "draught",
       "status": "landrace",
-      "origin": { "country": "India", "state": "Maharashtra", "regions": ["Purna river basin, Vidarbha"] },
+      "origin": {
+        "country": "India",
+        "state": "Maharashtra",
+        "regions": [
+          "Purna river basin, Vidarbha"
+        ]
+      },
       "coat": "White-grey with darker shading on males",
-      "color_rgb": [180, 170, 155],
+      "color_rgb": [
+        180,
+        170,
+        155
+      ],
       "horns": "Medium, curved backwards",
-      "milk_yield_kg": [400, 700],
-      "milk_fat_pct": [4.2, 4.9],
+      "milk_yield_kg": [
+        400,
+        700
+      ],
+      "milk_fat_pct": [
+        4.2,
+        4.9
+      ],
       "temperament": "Energetic",
-      "traits": ["Named for the Purna river basin", "Draught-oriented bullocks", "Adapted to black-cotton soils of Vidarbha"],
+      "traits": [
+        "Named for the Purna river basin",
+        "Draught-oriented bullocks",
+        "Adapted to black-cotton soils of Vidarbha"
+      ],
       "summary": "Cattle of the Purna river valley in Vidarbha, maintained for draught power on the region's heavy black cotton soils.",
       "fun_fact": "River-basin landraces like Purnathadi are often named after the watercourse whose floodplains they graze."
     },
@@ -354,14 +790,34 @@
       "species": "cattle",
       "utility": "dual",
       "status": "landrace",
-      "origin": { "country": "India", "state": "Goa / Konkan", "regions": ["Konkan coastal belt"] },
+      "origin": {
+        "country": "India",
+        "state": "Goa / Konkan",
+        "regions": [
+          "Konkan coastal belt"
+        ]
+      },
       "coat": "Reddish-brown to pied, varying by locality",
-      "color_rgb": [162, 120, 90],
+      "color_rgb": [
+        162,
+        120,
+        90
+      ],
       "horns": "Short to medium, curved",
-      "milk_yield_kg": [300, 600],
-      "milk_fat_pct": [4.4, 5.2],
+      "milk_yield_kg": [
+        300,
+        600
+      ],
+      "milk_fat_pct": [
+        4.4,
+        5.2
+      ],
       "temperament": "Docile",
-      "traits": ["Adapted to humid Konkan coast", "Smallholder, temple and community herds", "Tolerant of high rainfall"],
+      "traits": [
+        "Adapted to humid Konkan coast",
+        "Smallholder, temple and community herds",
+        "Tolerant of high rainfall"
+      ],
       "summary": "Coastal Konkan cattle of Goa, kept in small herds for milk, draught and cultural purposes under high-rainfall conditions.",
       "fun_fact": "Goan cattle feature prominently in village 'zatra' (fair) processions along the Konkan coast."
     },
@@ -372,14 +828,34 @@
       "species": "cattle",
       "utility": "dual",
       "status": "landrace",
-      "origin": { "country": "India / Nepal", "state": "Eastern terai belt", "regions": ["Riverine lowlands"] },
+      "origin": {
+        "country": "India / Nepal",
+        "state": "Eastern terai belt",
+        "regions": [
+          "Riverine lowlands"
+        ]
+      },
       "coat": "Light fawn to golden-white ('sona' = golden)",
-      "color_rgb": [202, 172, 112],
+      "color_rgb": [
+        202,
+        172,
+        112
+      ],
       "horns": "Medium, curving upward",
-      "milk_yield_kg": [400, 800],
-      "milk_fat_pct": [4.3, 5.0],
+      "milk_yield_kg": [
+        400,
+        800
+      ],
+      "milk_fat_pct": [
+        4.3,
+        5.0
+      ],
       "temperament": "Calm",
-      "traits": ["Golden-fawn coat", "Riverine lowland adaptation", "Dual purpose milk and light draught"],
+      "traits": [
+        "Golden-fawn coat",
+        "Riverine lowland adaptation",
+        "Dual purpose milk and light draught"
+      ],
       "summary": "A golden-coated riverine landrace of the eastern lowlands, maintained for household milk and light farm work.",
       "fun_fact": "The name 'Sona' (gold) refers to the breed's characteristic warm golden coat in sunlight."
     },
@@ -390,14 +866,34 @@
       "species": "cattle",
       "utility": "dual",
       "status": "landrace",
-      "origin": { "country": "India", "state": "Western India", "regions": ["Pastoral tracts"] },
+      "origin": {
+        "country": "India",
+        "state": "Western India",
+        "regions": [
+          "Pastoral tracts"
+        ]
+      },
       "coat": "Grey-brown, occasionally pied",
-      "color_rgb": [152, 122, 100],
+      "color_rgb": [
+        152,
+        122,
+        100
+      ],
       "horns": "Medium, variable",
-      "milk_yield_kg": [300, 700],
-      "milk_fat_pct": [4.3, 5.1],
+      "milk_yield_kg": [
+        300,
+        700
+      ],
+      "milk_fat_pct": [
+        4.3,
+        5.1
+      ],
       "temperament": "Migratory, hardy",
-      "traits": ["Associated with pastoral herding communities", "Long-distance seasonal migration", "Survives on sparse grazing"],
+      "traits": [
+        "Associated with pastoral herding communities",
+        "Long-distance seasonal migration",
+        "Survives on sparse grazing"
+      ],
       "summary": "A pastoral landrace kept by migratory herding communities, adapted to long seasonal movements between grazing grounds.",
       "fun_fact": "Pastoral landraces cover hundreds of kilometres a year on traditional migration routes."
     },
@@ -408,14 +904,36 @@
       "species": "cattle",
       "utility": "draught",
       "status": "registered",
-      "origin": { "country": "India / Pakistan", "state": "Sindh / Rajasthan", "regions": ["Nara canal valley", "Jaisalmer fringe"] },
+      "origin": {
+        "country": "India / Pakistan",
+        "state": "Sindh / Rajasthan",
+        "regions": [
+          "Nara canal valley",
+          "Jaisalmer fringe"
+        ]
+      },
       "coat": "White to light grey, deep shading on neck in males",
-      "color_rgb": [228, 224, 214],
+      "color_rgb": [
+        228,
+        224,
+        214
+      ],
       "horns": "Medium, thick at base, curving upwards",
-      "milk_yield_kg": [1100, 1400],
-      "milk_fat_pct": [4.5, 5.2],
+      "milk_yield_kg": [
+        1100,
+        1400
+      ],
+      "milk_fat_pct": [
+        4.5,
+        5.2
+      ],
       "temperament": "Powerful, deep-bodied",
-      "traits": ["Massive draught bullocks", "Deep barrel and strong limbs", "Thrives on riverine floodplain grazing", "Bullocks fetch premium prices"],
+      "traits": [
+        "Massive draught bullocks",
+        "Deep barrel and strong limbs",
+        "Thrives on riverine floodplain grazing",
+        "Bullocks fetch premium prices"
+      ],
       "summary": "A heavyweight draught breed of the Nara valley, producing some of the largest and most powerful bullocks in South Asia.",
       "fun_fact": "Bhagnari bullocks are so prized for heavy carting that a single pair can out-pull a small tractor on soft ground, say herders."
     },
@@ -426,14 +944,34 @@
       "species": "cattle",
       "utility": "dual",
       "status": "landrace",
-      "origin": { "country": "India", "state": "Regional tract", "regions": ["Local herds"] },
+      "origin": {
+        "country": "India",
+        "state": "Regional tract",
+        "regions": [
+          "Local herds"
+        ]
+      },
       "coat": "Fawn to reddish-brown",
-      "color_rgb": [190, 160, 130],
+      "color_rgb": [
+        190,
+        160,
+        130
+      ],
       "horns": "Medium, curved",
-      "milk_yield_kg": [300, 700],
-      "milk_fat_pct": [4.3, 5.0],
+      "milk_yield_kg": [
+        300,
+        700
+      ],
+      "milk_fat_pct": [
+        4.3,
+        5.0
+      ],
       "temperament": "Steady",
-      "traits": ["Smallholder herds", "Low-input management", "Regional genetic reservoir"],
+      "traits": [
+        "Smallholder herds",
+        "Low-input management",
+        "Regional genetic reservoir"
+      ],
       "summary": "A locally recognised landrace maintained in regional herds; formal descriptor documentation is limited.",
       "fun_fact": "Community-maintained landraces often carry unique disease-resistance traits lost in commercial breeds."
     },
@@ -444,14 +982,34 @@
       "species": "cattle",
       "utility": "dual",
       "status": "landrace",
-      "origin": { "country": "India", "state": "Regional tract", "regions": ["Local herds"] },
+      "origin": {
+        "country": "India",
+        "state": "Regional tract",
+        "regions": [
+          "Local herds"
+        ]
+      },
       "coat": "Brown to grey-brown",
-      "color_rgb": [180, 150, 120],
+      "color_rgb": [
+        180,
+        150,
+        120
+      ],
       "horns": "Medium, outward-curving",
-      "milk_yield_kg": [300, 700],
-      "milk_fat_pct": [4.2, 5.0],
+      "milk_yield_kg": [
+        300,
+        700
+      ],
+      "milk_fat_pct": [
+        4.2,
+        5.0
+      ],
       "temperament": "Hardy",
-      "traits": ["Extensive grazing systems", "Dual purpose", "Adapted to local climate stress"],
+      "traits": [
+        "Extensive grazing systems",
+        "Dual purpose",
+        "Adapted to local climate stress"
+      ],
       "summary": "A locally recognised landrace preserved by regional farming communities; formal documentation remains limited.",
       "fun_fact": "Documenting landraces like Mursali is a race against time as herds shrink each decade."
     },
@@ -462,14 +1020,34 @@
       "species": "cattle",
       "utility": "dual",
       "status": "landrace",
-      "origin": { "country": "India", "state": "Southern / central tract", "regions": ["Local herds"] },
+      "origin": {
+        "country": "India",
+        "state": "Southern / central tract",
+        "regions": [
+          "Local herds"
+        ]
+      },
       "coat": "Dark brown to grey",
-      "color_rgb": [120, 100, 85],
+      "color_rgb": [
+        120,
+        100,
+        85
+      ],
       "horns": "Medium, curved upwards",
-      "milk_yield_kg": [300, 600],
-      "milk_fat_pct": [4.2, 5.0],
+      "milk_yield_kg": [
+        300,
+        600
+      ],
+      "milk_fat_pct": [
+        4.2,
+        5.0
+      ],
       "temperament": "Spirited",
-      "traits": ["Maintained under extensive systems", "Valued for draught and manure", "Regional adaptation traits"],
+      "traits": [
+        "Maintained under extensive systems",
+        "Valued for draught and manure",
+        "Regional adaptation traits"
+      ],
       "summary": "A locally recognised landrace with limited formal documentation, maintained by traditional herding communities.",
       "fun_fact": "The name evokes the breed's spirited ('kadak') character, prized in working bullocks."
     }

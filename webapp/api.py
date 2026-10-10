@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import json
 import logging
 import time
 import uuid
@@ -20,7 +21,7 @@ logger = logging.getLogger("cattle-classifier.api")
 
 api = Blueprint("api", __name__)
 
-SAMPLES_DIR = FRONTEND_DIST.parent / "samples"
+SAMPLES_DIR = FRONTEND_DIST.parent / "dataset"
 
 
 # ---------------------------------------------------------------------------
@@ -183,15 +184,33 @@ def breed_detail(slug: str):
 
 @api.get("/api/v1/samples")
 def samples():
-    items: List[Dict[str, str]] = []
-    if SAMPLES_DIR.exists():
+    """Bundled real reference photos (manifest-backed, with credits)."""
+    items: List[Dict[str, Any]] = []
+    manifest_path = SAMPLES_DIR / "manifest.json"
+    if manifest_path.exists():
+        try:
+            manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+            items = [
+                {
+                    "name": m["name"],
+                    "url": f"/static/dataset/{m['file']}",
+                    "breed": m.get("breed"),
+                    "credit": m.get("credit", ""),
+                }
+                for m in manifest
+                if (SAMPLES_DIR / m["file"]).is_file()
+            ]
+        except (ValueError, KeyError):
+            items = []
+    if not items and SAMPLES_DIR.exists():  # fallback: directory scan
         for path in sorted(SAMPLES_DIR.glob("*")):
             if path.suffix.lower() in (".jpg", ".jpeg", ".png", ".webp"):
                 items.append(
                     {
                         "name": path.stem.replace("-", " ").title(),
-                        "url": f"/static/samples/{path.name}",
-                        "credit": path.stem,
+                        "url": f"/static/dataset/{path.name}",
+                        "breed": path.stem,
+                        "credit": "",
                     }
                 )
     return jsonify(items)
@@ -231,7 +250,15 @@ def predict():
     except (ImageValidationError, UnsafeUrlError) as exc:
         return _error(str(exc), "predict_bad_request", 400)
     except RequestException as exc:
-        return _error(f"Could not fetch image from URL: {exc}", "predict_fetch_failed", 400)
+        detail = exc.__class__.__name__
+        return _error(
+            f"Could not fetch the image from that URL ({detail}). Tip: paste a *direct* "
+            f"image link (ending in .jpg/.png/.webp) — search-page URLs are not images. "
+            f"On network-restricted deployments external hosts may be unreachable; "
+            f"upload the file or use a bundled sample instead.",
+            "predict_fetch_failed",
+            400,
+        )
     except Exception:
         logger.exception("Unexpected prediction error")
         return _error("Internal server error while running inference.", "predict_internal", 500)

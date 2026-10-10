@@ -290,7 +290,9 @@ export default function Classify() {
                   onChange={(e) => setUrl(e.target.value)}
                 />
                 <div className="faint" style={{ fontSize: '.8rem', marginTop: '.5rem' }}>
-                  Fetched server-side with SSRF protection; only public http(s) image URLs are allowed.
+                  Direct image links only (…jpg / …png / …webp) — search-page URLs are not images.
+                  Fetched server-side with SSRF protection; on network-restricted deployments external
+                  hosts may be unreachable, so prefer Upload or a bundled sample.
                 </div>
                 {url && /^https?:\/\//i.test(url) && (
                   <div className="dropzone-preview mt-2">
@@ -425,7 +427,7 @@ export default function Classify() {
                       setResult(null);
                       setError(null);
                     }}
-                    title={`Use sample: ${s.name}`}
+                    title={`${s.name}${s.credit ? ` · photo: ${s.credit}` : ''}`}
                   >
                     <img src={s.url} alt={s.name} loading="lazy" />
                     <span className="cap">{s.name}</span>

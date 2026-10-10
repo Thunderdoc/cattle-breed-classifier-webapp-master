@@ -10,7 +10,7 @@ import pytest
 
 from webapp.factory import create_app
 
-SAMPLE = Path(__file__).resolve().parent.parent / "static" / "samples" / "gir-cow.jpg"
+SAMPLE = Path(__file__).resolve().parent.parent / "static" / "dataset" / "gir-cow.jpg"
 
 
 @pytest.fixture()
@@ -155,7 +155,8 @@ def test_error_envelope_has_request_id(client):
 def test_samples_listing(client):
     samples = client.get("/api/v1/samples").get_json()
     assert isinstance(samples, list) and samples
-    assert samples[0]["url"].startswith("/static/samples/")
+    assert samples[0]["url"].startswith("/static/dataset/")
+    assert all("credit" in s for s in samples)
 
 
 def test_stats(client):

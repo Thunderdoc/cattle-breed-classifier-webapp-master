@@ -56,12 +56,16 @@ export default function BreedDetail() {
         <Reveal>
           <div className="card" style={{ padding: 'clamp(1.6rem,4vw,2.6rem)' }}>
             <div className="breed-detail-hero">
-              <div
-                className="breed-swatch-lg"
-                style={{ background: `linear-gradient(140deg, rgb(${breed.color_rgb.join(',')}), rgb(${breed.color_rgb.map((c) => Math.max(0, c - 55)).join(',')}))` }}
-                role="img"
-                aria-label={`Representative coat colour of the ${breed.name} breed`}
-              />
+              {breed.image ? (
+                <img className="breed-photo-lg" src={breed.image} alt={`${breed.name} reference photograph`} />
+              ) : (
+                <div
+                  className="breed-swatch-lg"
+                  style={{ background: `linear-gradient(140deg, rgb(${breed.color_rgb.join(',')}), rgb(${breed.color_rgb.map((c) => Math.max(0, c - 55)).join(',')}))` }}
+                  role="img"
+                  aria-label={`Representative coat colour of the ${breed.name} breed`}
+                />
+              )}
               <div>
                 <div style={{ display: 'flex', gap: '.5rem', flexWrap: 'wrap', marginBottom: '.7rem' }}>
                   <span className={`badge ${breed.species === 'buffalo' ? 'badge-info' : 'badge-accent'}`}>{breed.species}</span>

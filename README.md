@@ -161,7 +161,7 @@ app.py                  # entrypoint (create_app + dev server)
 webapp/                 # Flask package: factory, api, engine, imaging, security, metrics
 frontend/               # React 18 + Vite SPA (src/, public/, vite.config.js)
 static/app/             # built front-end bundle (commit-ready; regenerate with npm run build)
-static/samples/         # bundled, same-origin sample images
+static/dataset/         # bundled real reference photos + manifest (credits)
 data/breeds.json        # encyclopedia dataset (26 breeds)
 models/classes.txt      # class order
 src/, notebooks/        # training code & original Colab notebook

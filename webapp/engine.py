@@ -49,14 +49,19 @@ class HeuristicEngine(BaseEngine):
     # photographic RGB (fitted on bundled reference photos).
     PHOTO_A, PHOTO_B = 0.62, 43.6
 
-    # Prototype statistics measured from the bundled reference photographs
+    # Prototype statistics measured from the bundled real reference photographs
     # (coat RGB in photo space, dark-fraction, light-fraction). Breeds with a
     # reference photo use measured centroids; the rest use mapped descriptors.
     PROTOTYPES = {
-        "Gir_Cow": ((139, 107, 77), 0.39, 0.21),
-        "Murrah_Buffalo": ((103, 92, 63), 0.48, 0.13),
-        "Sahiwal_Cow": ((164, 129, 94), 0.14, 0.26),
-        "Dangi_Cow": ((143, 143, 133), 0.13, 0.34),
+        "Gir_Cow": ((173, 121, 84), 0.16, 0.23),
+        "Sahiwal_Cow": ((117, 96, 84), 0.40, 0.10),
+        "Red_Sindhi_Cow": ((142, 94, 71), 0.34, 0.04),
+        "Dangi_Cow": ((169, 145, 116), 0.16, 0.43),
+        "Khillar_Cow": ((163, 143, 118), 0.15, 0.43),
+        "Tharparkar_Cow": ((159, 136, 106), 0.15, 0.23),
+        "Murrah_Buffalo": ((97, 97, 92), 0.45, 0.06),
+        "Mehsana_Buffalo": ((124, 120, 113), 0.25, 0.25),
+        "Surti_Buffalo": ((142, 120, 99), 0.25, 0.29),
         "Bhagnari_Cow": ((228, 222, 219), 0.03, 0.85),
     }
 

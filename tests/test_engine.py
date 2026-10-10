@@ -10,7 +10,7 @@ from PIL import Image
 from webapp.engine import HeuristicEngine
 from webapp.imaging import ImageValidationError, decode_bytes, to_array
 
-SAMPLE = Path(__file__).resolve().parent.parent / "static" / "samples" / "gir-cow.jpg"
+SAMPLE = Path(__file__).resolve().parent.parent / "static" / "dataset" / "gir-cow.jpg"
 
 
 @pytest.fixture(scope="module")
@@ -31,6 +31,12 @@ def test_heuristic_labels_reference_photos(engine):
         "murrah-buffalo.jpg": "Murrah Buffalo",
         "sahiwal-cow.jpg": "Sahiwal Cow",
         "dangi-cow.jpg": "Dangi Cow",
+        "red-sindhi-cow.jpg": "Red Sindhi Cow",
+        "mehsana-buffalo.jpg": "Mehsana Buffalo",
+        "surti-buffalo.jpg": "Surti Buffalo",
+        "khillar-cow.jpg": "Khillar Cow",
+        "tharparkar-cow.jpg": "Tharparkar Cow",
+        "white-bull.jpg": "Bhagnari Cow",
     }
     root = SAMPLE.parent
     for fname, expected in samples.items():

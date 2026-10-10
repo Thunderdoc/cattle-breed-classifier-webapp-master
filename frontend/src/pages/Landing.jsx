@@ -311,8 +311,10 @@ export default function Landing() {
               <Link key={b.slug} to={`/breeds/${b.slug}`} className="card card-hover breed-card">
                 <div
                   className="swatch"
-                  style={{ background: `linear-gradient(140deg, rgb(${b.color_rgb.join(',')}), rgb(${b.color_rgb.map((c) => Math.max(0, c - 45)).join(',')}))` }}
-                />
+                  style={b.image ? undefined : { background: `linear-gradient(140deg, rgb(${b.color_rgb.join(',')}), rgb(${b.color_rgb.map((c) => Math.max(0, c - 45)).join(',')}))` }}
+                >
+                  {b.image && <img src={b.image} alt={`${b.name} reference photo`} loading="lazy" />}
+                </div>
                 <div className="body">
                   <div className="meta">
                     <span className={`badge ${b.species === 'buffalo' ? 'badge-info' : 'badge-accent'}`}>{b.species}</span>
