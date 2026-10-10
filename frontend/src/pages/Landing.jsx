@@ -334,7 +334,7 @@ export default function Landing() {
 
       {/* ── API ──────────────────────────────────────────────────────── */}
       <section className="section" style={{ paddingTop: 0 }}>
-        <div className="container" style={{ display: 'grid', gridTemplateColumns: '1fr 1.1fr', gap: '3rem', alignItems: 'center' }}>
+        <div className="container api-split">
           <Reveal>
             <span className="eyebrow">API-first</span>
             <h2 className="h-section mt-2">
@@ -366,7 +366,7 @@ export default function Landing() {
       <section className="section" style={{ paddingTop: 0 }}>
         <div className="container">
           <SectionHead center eyebrow="In the field" title="Who it serves" />
-          <div className="feature-grid" style={{ gridTemplateColumns: 'repeat(4, 1fr)' }}>
+          <div className="usecase-grid">
             {[
               { icon: <Tractor size={20} />, t: 'Farmers & co-ops', d: 'Verify breed claims at purchase and record herd composition digitally.' },
               { icon: <Stethoscope size={20} />, t: 'Veterinarians', d: 'Breed-aware care: body condition, yield expectations and temperament at a glance.' },

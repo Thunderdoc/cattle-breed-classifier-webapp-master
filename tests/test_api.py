@@ -127,10 +127,16 @@ def test_legacy_aliases(client):
 
 
 def test_spa_routes(client):
-    for path in ("/", "/classify", "/breeds", "/breeds/gir-cow", "/docs", "/model", "/about", "/whatever"):
+    for path in ("/", "/classify", "/breeds", "/breeds/gir-cow", "/docs", "/model", "/about"):
         r = client.get(path)
         assert r.status_code == 200, path
         assert "text/html" in r.content_type
+
+
+def test_unknown_route_returns_404_shell(client):
+    r = client.get("/definitely-not-a-page")
+    assert r.status_code == 404
+    assert "text/html" in r.content_type  # client-side 404 page renders
 
 
 def test_security_headers(client):

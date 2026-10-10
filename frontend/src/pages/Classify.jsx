@@ -20,7 +20,7 @@ import {
 import { PageMeta } from '../components/chrome';
 import { ConfidenceBar, EmptyState, Skeleton, Tabs } from '../components/ui';
 import { api, downloadText, toCsv } from '../lib/api';
-import { readAsDataUrl, useLocalStorage } from '../lib/hooks';
+import { makeThumb, readAsDataUrl, useLocalStorage } from '../lib/hooks';
 import { useStore } from '../lib/store';
 
 const ACCEPT = 'image/jpeg,image/png,image/webp,image/gif,image/bmp';
@@ -142,11 +142,12 @@ export default function Classify() {
         throw new Error('Choose an image first — drop, paste, capture or pick a sample.');
       }
       setResult(res);
+      const thumb = preview ? await makeThumb(preview) : null;
       setHistory((h) =>
         [
           {
             id: Date.now(),
-            thumb: preview,
+            thumb,
             label: res.class,
             prob: res.predictions[0]?.prob ?? 0,
           },
@@ -531,7 +532,11 @@ export default function Classify() {
                 <div className="history-strip mt-2">
                   {history.map((h) => (
                     <div key={h.id} className="history-item" title={`${h.label} (${(h.prob * 100).toFixed(0)}%)`}>
-                      <img src={h.thumb} alt={h.label} loading="lazy" />
+                      {h.thumb ? (
+                        <img src={h.thumb} alt={h.label} loading="lazy" />
+                      ) : (
+                        <div className="skeleton" style={{ width: 74, height: 74 }} />
+                      )}
                       <div className="cap">{h.label}</div>
                     </div>
                   ))}
