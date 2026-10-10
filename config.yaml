@@ -1,77 +1,92 @@
 # ---------------------------------------------------------------------------
-# Application Configuration — Indigenous Cattle Breed Classifier
+# Application Configuration — Indigenous Cattle Breed Classifier (v2)
 # ---------------------------------------------------------------------------
-# Override any value via environment variables (see app.py for the mapping).
+# Environment variables always win over the values below (see webapp/config.py).
 # ---------------------------------------------------------------------------
 
-title: "Indigenous Cattle Breed Classifier"
-description: "Identify cattle breeds from images using deep learning (PyTorch ResNet-18). Upload a photo or provide a URL."
-version: "1.0.0"
+title: "Bovine AI — Indigenous Cattle Breed Classifier"
+description: >-
+  Identify 26 indigenous Indian cattle and buffalo breeds from a single photo.
+  Fine-tuned ResNet-18 inference in milliseconds, a researched breed
+  encyclopedia, and a production-grade REST API.
+version: "2.0.0"
 
 author:
   name: "Ajit Kumar Singh"
   website: "https://sajit9285.github.io/myportfolio"
 
 about: |
-  This is a Cattle Breed Classifier using Deep Learning built on top of PyTorch.
-  The project was built by Ajit Kumar Singh.
+  Bovine AI is a cattle breed classifier built on PyTorch + Flask + React.
 
-  The model recognizes 26 popular Indian cattle breeds with a ResNet-18
-  architecture trained on ~4,000 images.
+  The model recognises 26 indigenous Indian cattle and buffalo breeds with a
+  ResNet-18 architecture fine-tuned on ~4,000 images. When the trained
+  checkpoint is absent the service degrades gracefully to a clearly-labelled
+  deterministic demo engine so every integration path stays testable.
 
-  - Blog: https://sajit9285.github.io/myportfolio
-  - Original web app: https://cattle-breed-classifier.herokuapp.com
   - Source code: https://github.com/sajit9285/cattle-breed-classifier-webapp
+  - Original web app: https://cattle-breed-classifier.herokuapp.com
 
 code: "https://github.com/sajit9285/cattle-breed-classifier-webapp"
 
-# Inference behaviour
+# Inference behaviour (env overrides: TOP_N_PREDICTIONS, CONFIDENCE_THRESHOLD,
+# MAX_FILE_SIZE_MB, MAX_IMAGE_DIMENSION, BATCH_MAX_IMAGES)
 inference:
-  top_n: 3                    # Number of predictions to return
-  confidence_threshold: 0.0   # Minimum probability to include a prediction (0.0 = all)
-  max_file_size_mb: 10        # Maximum uploaded file size
-  max_image_dimension: 2048   # Maximum image width/height in pixels
+  top_n: 5
+  confidence_threshold: 0.0
+  max_file_size_mb: 10
+  max_image_dimension: 4096
+  batch_max_images: 16
 
-# Google Drive model location (can be overridden by env vars)
+# Model artifacts (env overrides: EXPORT_FILE_URL, EXPORT_CLASSES_URL, ...)
 model:
   file_url: "https://drive.google.com/u/0/uc?id=1x5Ljh9xtNfXFMm97AMlewW1nZ77XS-gb&export=download"
   classes_url: "https://drive.google.com/u/0/uc?id=1IaF_zn-RDnsEntYp86F5G7FNlEkQ8KJ_&export=download"
   file_name: "cattle_breed_classifier_full_model.pth"
   classes_name: "classes.txt"
 
-# Sample images for the UI demo
+# Bundled sample images served from /static/samples (same-origin, CSP-safe)
 sampleImages:
   - name: "Gir Cow"
-    url: "https://cpimg.tistatic.com/05562730/b/4/Brown-Gir-Cow.jpg"
-  - name: "Mehsana Buffalo"
-    url: "https://img3.exportersindia.com/product_images/bc-full/dir_170/5099898/black-mehsana-buffalo-1501733678-3189068.jpeg"
-  - name: "Dangi Cow"
-    url: "https://1.bp.blogspot.com/-n2TgPiF8bng/WDfY8Sv2G0I/AAAAAAAAC8U/DQ6B4noSTEEK-eO8lChFEfuUO5lvIJyAgCLcB/s600/Dangi%2BCattle.jpg"
+    url: "/static/samples/gir-cow.jpg"
+  - name: "Murrah Buffalo"
+    url: "/static/samples/murrah-buffalo.jpg"
   - name: "Sahiwal Cow"
-    url: "https://img1.exportersindia.com/product_images/bc-full/dir_192/5735123/sahiwal-cow-1529766224-4013945.jpeg"
+    url: "/static/samples/sahiwal-cow.jpg"
+  - name: "Dangi Cow"
+    url: "/static/samples/dangi-cow.jpg"
+  - name: "White Bull"
+    url: "/static/samples/white-bull.jpg"
 
-# API info
+# API surface
 api:
-  base_url: "/api"
+  base_url: "/api/v1"
   endpoints:
-    - path: "POST /api/classify"
-      description: "Upload an image file for classification"
-    - path: "GET /api/classify?url=<image_url>"
-      description: "Classify an image from a URL"
-    - path: "GET /api/classes"
-      description: "List all recognized breeds"
-    - path: "GET /ping"
-      description: "Health check (returns pong)"
+    - path: "POST /api/v1/predict"
+      description: "Classify one image (multipart file, JSON {image|url}, or ?url=)"
+    - path: "POST /api/v1/predict/batch"
+      description: "Classify up to 16 images per request"
+    - path: "GET /api/v1/breeds"
+      description: "Encyclopedia index with species/utility/q filters"
+    - path: "GET /api/v1/breeds/{slug}"
+      description: "Single breed profile"
+    - path: "GET /api/v1/classes"
+      description: "Model class names"
+    - path: "GET /api/v1/samples"
+      description: "Bundled sample images"
+    - path: "GET /api/v1/stats"
+      description: "Public counters"
+    - path: "GET /api/v1/system"
+      description: "Engine, version and limit metadata"
     - path: "GET /health"
-      description: "Extended health check with version info"
-    - path: "POST /api/classify/batch"
-      description: "Classify multiple images in one request (JSON body)"
-    - path: "GET /config"
-      description: "Return app configuration"
+      description: "Liveness + model status"
+    - path: "GET /ready"
+      description: "Readiness probe"
+    - path: "GET /metrics"
+      description: "Prometheus text exposition"
+    - path: "POST /api/classify"
+      description: "Legacy v1 alias"
 
-# Deployment info
 deployment:
   default_port: 5001
-  workers_recommended: 4
-  gunicorn_command: "gunicorn --bind 0.0.0.0:$PORT --workers 4 app:app"
-  uvicorn_command: "uvicorn app:app --host 0.0.0.0 --port $PORT --workers 4"
+  gunicorn_command: "gunicorn -c gunicorn_conf.py app:app"
+  docker_command: "docker compose up --build"

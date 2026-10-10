@@ -1,0 +1,26 @@
+{
+  "name": "cattle-breed-classifier-frontend",
+  "private": true,
+  "version": "2.0.0",
+  "type": "module",
+  "description": "React 18 + Vite front-end for the Indigenous Cattle Breed Classifier",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint src --ext .js,.jsx"
+  },
+  "dependencies": {
+    "@fontsource-variable/inter": "^5.1.0",
+    "@fontsource-variable/jetbrains-mono": "^5.1.0",
+    "@fontsource-variable/space-grotesk": "^5.1.0",
+    "lucide-react": "^0.454.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.28.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.3",
+    "vite": "^5.4.10"
+  }
+}

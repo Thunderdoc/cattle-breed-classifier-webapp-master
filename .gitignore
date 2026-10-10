@@ -1,6 +1,16 @@
 data/*
-!data/.gitkeep 
+!data/.gitkeep
+!data/breeds.json
 **/.ipynb_checkpoints/
 models/*
 !models/classes.txt
 .idea
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+venv/
+.env
+frontend/node_modules/
+frontend/dist/
+.DS_Store

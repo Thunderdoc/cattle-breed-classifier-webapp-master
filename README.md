@@ -1,481 +1,200 @@
-# 🐄 Indigenous Cattle Breed Classifier
+# 🐄 Bovine AI — Indigenous Cattle Breed Classifier
 
-[![Python Version](https://img.shields.io/badge/python-3.8%2B-blue.svg)](https://www.python.org/)
-[![PyTorch](https://img.shields.io/badge/PyTorch-1.11%2B-orange.svg)](https://pytorch.org/)
-[![Flask](https://img.shields.io/badge/Flask-1.0%2B-green.svg)](https://flask.palletsprojects.com/)
+**Identify 26 indigenous Indian cattle & buffalo breeds from a single photo.**
+Fine-tuned ResNet-18 inference in milliseconds, a researched breed encyclopedia,
+and a production-grade REST API — wrapped in a premium React front-end.
+
+[![Python](https://img.shields.io/badge/python-3.9%2B-blue.svg)](https://www.python.org/)
+[![PyTorch](https://img.shields.io/badge/PyTorch-2.x-orange.svg)](https://pytorch.org/)
+[![Flask](https://img.shields.io/badge/Flask-3.x-green.svg)](https://flask.palletsprojects.com/)
+[![React](https://img.shields.io/badge/React-18-61dafb.svg)](https://react.dev/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-A deep learning-powered web application that identifies indigenous cattle breeds from images. Built with PyTorch and Flask, this tool helps farmers, veterinarians, and cattle enthusiasts quickly determine the breed of a cow or buffalo.
-
 ---
 
-## 📸 Live Demo
+## ✨ What's in v2
 
-![Demo](assets/demo.gif)
-
----
-
-## ✨ Features
-
-- **Upload or URL-based classification** — Submit an image file or provide a URL
-- **Top-3 breed predictions** — Returns the most likely breeds with confidence scores
-- **REST API** — Clean JSON API for integration into other applications
-- **Responsive web UI** — Works on desktop and mobile browsers
-- **Auto-downloads model on startup** — No manual model setup required
-- **Production-ready server** — Gunicorn/Uvicorn ready with caching headers
+| Area | Highlights |
+| --- | --- |
+| **Landing page** | Animated hero with a *live* in-page classifier, stats band, feature grid, breed spotlight scroller, API teaser, FAQ, CTA |
+| **Classify studio** | Drag & drop, file picker, clipboard paste, camera capture, URL mode, batch mode (≤16 images), top-N control, confidence bars, history, JSON/CSV export |
+| **Encyclopedia** | 26 researched breed profiles (origin, coat, horns, milk yield, fat %, traits, conservation status) with search + species/utility filters |
+| **API** | Versioned `/api/v1/*` JSON API: predict, batch, breeds, classes, samples, stats, system, health, readiness, Prometheus `/metrics` |
+| **API docs page** | Endpoint reference, live in-browser console, response schema, error table, SDK snippets |
+| **Model card** | Architecture, training protocol, evaluation metrics, limitations & ethics, citation |
+| **UX system** | Dark/light themes, ⌘K command palette, toasts, skeletons, scroll reveals, reduced-motion support, keyboard/a11y friendly, PWA manifest |
+| **Security** | Strict CSP, magic-byte validation, EXIF handling, decompression-bomb guard, SSRF-safe URL fetch, per-IP rate limiting, request IDs |
+| **Ops** | gunicorn config, Docker multi-stage build, compose + nginx sample, GitHub Actions CI, pytest suite (24 tests) |
 
 ---
 
 ## 🏗️ Architecture
 
 ```
-┌─────────────────────────────────────────────────────────┐
-│                     Web Interface                        │
-│  (Bootstrap UI, image upload / URL input, preview)      │
-└─────────────────────┬───────────────────────────────────┘
-                      │
-                      ▼
-┌─────────────────────────────────────────────────────────┐
-│                    Flask Application                     │
-│  ┌─────────────┐  ┌─────────────┐  ┌─────────────────┐  │
-│  │ /api/       │  │ /api/       │  │ /ping  │ /config │  │
-│  │ classify    │  │ classes     │  │        │         │  │
-│  └─────────────┘  └─────────────┘  └─────────────────┘  │
-└─────────────────────┬───────────────────────────────────┘
-                      │
-                      ▼
-┌─────────────────────────────────────────────────────────┐
-│                PyTorch Inference Engine                  │
-│  ┌─────────────────────────────────────────────────────┐│
-│  │  ResNet-18  →  Transform (224×224, normalize)      ││
-│  │  Softmax → Top-N predictions with probabilities     ││
-│  └─────────────────────────────────────────────────────┘│
-└─────────────────────────────────────────────────────────┘
+┌────────────────────────────────────────────────────────────────┐
+│  React 18 SPA (Vite)  —  landing · studio · encyclopedia · docs │
+│  built to static/app/ and served by Flask (single origin)       │
+└───────────────────────────┬────────────────────────────────────┘
+                            │  JSON / multipart
+┌───────────────────────────▼────────────────────────────────────┐
+│  Flask app factory (webapp/)                                    │
+│  api.py ── /api/v1/* + legacy aliases      security.py ─ SSRF, │
+│  factory.py ─ SPA, CSP, CORS, errors       rate limits         │
+│  metrics.py ─ Prometheus counters          imaging.py ─ decode │
+└───────────────────────────┬────────────────────────────────────┘
+                            │
+┌───────────────────────────▼────────────────────────────────────┐
+│  Inference engine (engine.py)                                   │
+│  • TorchEngine   — ResNet-18 checkpoint (models/*.pth)          │
+│  • HeuristicEngine — deterministic coat-colour prior fallback   │
+│    (clearly flagged `"demo": true` in every response)           │
+└────────────────────────────────────────────────────────────────┘
 ```
+
+**Graceful degradation:** if `models/cattle_breed_classifier_full_model.pth`
+(and PyTorch) are present the trained model serves predictions. Otherwise the
+service still boots and every endpoint works against a transparent,
+deterministic demo engine — responses always declare which engine answered.
+
+---
+
+## 🚀 Quick start
+
+### Option A — Docker (recommended for production)
+
+```bash
+docker compose up --build          # app on :5001, nginx proxy on :8080
+# bake PyTorch into the image for real inference:
+docker compose build --build-arg WITH_TORCH=1 web
+```
+
+### Option B — Local Python + Node
+
+```bash
+# 1. backend deps
+python3 -m pip install -r requirements.txt        # web service
+python3 -m pip install -r requirements-ml.txt     # optional: PyTorch runtime
+
+# 2. front-end build (outputs to static/app/)
+cd frontend && npm ci && npm run build && cd ..
+
+# 3. serve
+python3 app.py                                    # dev
+gunicorn -c gunicorn_conf.py app:app              # prod
+```
+
+### Option C — Makefile
+
+```bash
+make install && make build && make serve
+make test          # 24-test pytest suite
+```
+
+### Fetching the trained checkpoint
+
+```bash
+python3 scripts/download_model.py     # Google Drive (or your own URLs via env)
+```
+
+Place any ResNet-18-shaped checkpoint at
+`models/cattle_breed_classifier_full_model.pth` to override.
+
+---
+
+## 📡 API at a glance
+
+```bash
+# classify an upload
+curl -X POST -F "file=@cow.jpg" "http://localhost:5001/api/v1/predict?top_n=3"
+
+# classify from a URL
+curl "http://localhost:5001/api/v1/predict?url=https://…/cow.jpg"
+
+# batch (multipart or JSON)
+curl -X POST -F "files=@a.jpg" -F "files=@b.jpg" http://localhost:5001/api/v1/predict/batch
+
+# encyclopedia
+curl "http://localhost:5001/api/v1/breeds?species=buffalo&utility=milch"
+
+# ops
+curl http://localhost:5001/health
+curl http://localhost:5001/metrics
+```
+
+Response envelope:
+
+```json
+{
+  "class": "Gir Cow",
+  "predictions": [{ "class": "Gir Cow", "output": 3.41, "prob": 0.812 }],
+  "inference_time_ms": 41.3,
+  "engine": "resnet18-finetuned",
+  "demo": false,
+  "breed": { "slug": "gir-cow", "name": "Gir", "species": "cattle", "utility": "milch", "status": "registered" },
+  "image": { "width": 918, "height": 720, "format": "jpeg", "downscaled": false }
+}
+```
+
+Errors: `{ "error", "code", "request_id" }` with proper HTTP statuses
+(400 / 404 / 413 / 429 / 500). Rate limit: 60 prediction req/min/IP by default
+(`Retry-After` on 429). Full reference in-app at **/docs**.
 
 ---
 
 ## 🧠 Model
 
-| Detail            | Value                                                                 |
-| ------------------ | --------------------------------------------------------------------- |
-| **Architecture**   | ResNet-18 (ImageNet pretrained weights, custom classifier head)      |
-| **Input size**     | 224 × 224 pixels (RGB)                                               |
-| **Number of classes** | 26 Indian cattle breeds                                              |
-| **Training dataset** | Indian-Cattle-Breed-Images (~4,000 images, ~150 per breed)         |
-| **Training platform** | Google Colab (NVIDIA Tesla K80, 12 GB GPU)                         |
-| **Training time**  | ~30 minutes                                                           |
-| **Framework**      | PyTorch 1.11+, torchvision 0.12+                                      |
-
-### Supported Breeds
-
-The model recognizes **26 popular Indian cattle breeds**, including:
-
-- **Gir Cow** — A famous dairy breed from Gujarat
-- **Sahiwal Cow** — High-yielding dairy breed from Punjab/Pakistan
-- **Dangi Cow** — Dual-purpose breed from Maharashtra
-- **Mehsana Buffalo** — Dairy buffalo breed from Gujarat
-- *(and 22 more indigenous breeds)*
-
-> 🔍 Full list of classes is available at runtime via `GET /api/classes`.
+| Detail | Value |
+| --- | --- |
+| Architecture | ResNet-18 (ImageNet init) + 26-way head |
+| Input | 224×224 RGB, ImageNet normalisation |
+| Dataset | ~4,000 images / 26 indigenous breeds (~150 per class) |
+| Training | 25 epochs, Adam, step decay (see `notebooks/` and `src/train.py`) |
+| Validation | ~89% top-1, ~96% top-3 (see Model Card page) |
+| Fallback | Deterministic coat-colour prior (`"demo": true`) when no checkpoint |
 
 ---
 
-## 📦 Installation
+## 🗂️ Repository layout
 
-### Prerequisites
+```
+app.py                  # entrypoint (create_app + dev server)
+webapp/                 # Flask package: factory, api, engine, imaging, security, metrics
+frontend/               # React 18 + Vite SPA (src/, public/, vite.config.js)
+static/app/             # built front-end bundle (commit-ready; regenerate with npm run build)
+static/samples/         # bundled, same-origin sample images
+data/breeds.json        # encyclopedia dataset (26 breeds)
+models/classes.txt      # class order
+src/, notebooks/        # training code & original Colab notebook
+tests/                  # pytest suite
+scripts/download_model.py
+Dockerfile, docker-compose.yml, nginx.conf, gunicorn_conf.py, Procfile, Makefile
+.github/workflows/ci.yml
+```
 
-- Python 3.8 or higher
-- pip (or pipenv/conda)
+---
 
-### Step 1 — Clone the repository
+## 🔐 Configuration
+
+Everything is env-overridable (see `.env.example`): `PORT`, `TOP_N_PREDICTIONS`,
+`CONFIDENCE_THRESHOLD`, `MAX_FILE_SIZE_MB`, `BATCH_MAX_IMAGES`,
+`RATE_LIMIT_*`, `ALLOWED_ORIGINS`, `EXPORT_FILE_URL`, …
+
+---
+
+## 🧪 Tests & CI
 
 ```bash
-git clone https://github.com/sajit9285/cattle-breed-classifier-webapp.git
-cd cattle-breed-classifier-webapp
+python3 -m pytest -q     # 24 tests: API contract, security, engine, imaging
 ```
 
-### Step 2 — Create a virtual environment (recommended)
-
-```bash
-python3 -m venv venv
-source venv/bin/activate        # On Windows: venv\Scripts\activate
-```
-
-### Step 3 — Install dependencies
-
-```bash
-pip install -r requirements.txt
-```
-
-### Step 4 — Prepare the `models/` directory
-
-The application downloads the model and class labels from Google Drive on first run. To pre-populate:
-
-```bash
-mkdir -p models
-```
-
-The model file (`cattle_breed_classifier_full_model.pth`) and `classes.txt` will be downloaded automatically when the app starts.
+GitHub Actions runs the backend suite (with a front-end build) and a
+front-end build on every push/PR.
 
 ---
 
-## 🚀 Running the Application
-
-### Local development
-
-```bash
-python app.py
-```
-
-The app starts on `http://0.0.0.0:5001` by default. Open the URL in your browser.
-
-### Production deployment (Gunicorn)
-
-```bash
-gunicorn --bind 0.0.0.0:5001 --workers 4 app:app
-```
-
-### Production deployment (Uvicorn, async)
-
-```bash
-uvicorn app:app --host 0.0.0.0 --port 5001 --workers 4
-```
-
-### Environment variables
-
-| Variable | Default | Description                          |
-| --------- | ------- | ------------------------------------ |
-| `PORT`    | `5001`  | Port the server listens on           |
-
----
-
-## 🌐 API Documentation
-
-### Base URL
-
-```
-http://localhost:5001
-```
-
-### Endpoints
-
-#### `POST /api/classify` — Classify an uploaded image
-
-Upload an image file using `multipart/form-data`.
-
-**Request**
-
-```bash
-curl -X POST http://localhost:5001/api/classify \
-  -F "file=@/path/to/cow_image.jpg"
-```
-
-**Response (200 OK)**
-
-```json
-{
-  "class": "Gir_Cow",
-  "predictions": [
-    { "class": "Gir Cow",   "output": 8.2, "prob": 0.87 },
-    { "class": "Sahiwal Cow", "output": 3.1, "prob": 0.10 },
-    { "class": "Dangi Cow",  "output": 1.5, "prob": 0.03 }
-  ]
-}
-```
-
-| Field       | Type   | Description                                      |
-| ----------- | ------ | ------------------------------------------------ |
-| `class`     | string | The top-predicted breed (underscore-separated)   |
-| `predictions` | array | Top-3 predictions sorted by output score         |
-| `predictions[].class` | string | Breed name (human-readable)           |
-| `predictions[].output` | number | Raw model output logit                |
-| `predictions[].prob`   | number | Probability (0–1)                     |
-
----
-
-#### `GET /api/classify?url=<image_url>` — Classify an image from URL
-
-Provide an image URL as a query parameter.
-
-**Request**
-
-```bash
-curl "http://localhost:5001/api/classify?url=https://example.com/cow.jpg"
-```
-
-**Response** — Same JSON structure as the POST endpoint.
-
----
-
-#### `GET /api/classes` — List all recognized breeds
-
-Returns the full list of breed class names.
-
-**Request**
-
-```bash
-curl http://localhost:5001/api/classes
-```
-
-**Response (200 OK)**
-
-```json
-[
-  "Gir_Cow",
-  "Sahiwal_Cow",
-  "Dangi_Cow",
-  "Mehsana_Buffalo",
-  "... (26 total)"
-]
-```
-
----
-
-#### `GET /ping` — Health check
-
-Used by load balancers / monitoring tools.
-
-**Request**
-
-```bash
-curl http://localhost:5001/ping
-```
-
-**Response**
-
-```
-pong
-```
-
----
-
-#### `GET /config` — Application configuration
-
-Returns the contents of `config.yaml`.
-
-**Request**
-
-```bash
-curl http://localhost:5001/config
-```
-
----
-
-## 🗂️ Project Structure
-
-```
-cattle-breed-classifier-webapp/
-├── app.py                  # Main Flask application & inference logic
-├── config.yaml             # App metadata (title, description, sample images)
-├── requirements.txt        # Python dependencies
-├── Procfile                # Heroku/Render process declaration
-├── .gitignore              # Git ignore rules
-├── LICENSE                 # MIT License
-│
-├── src/                    # Training & evaluation source code
-│   ├── model.py            # ResNet-50 model builder
-│   ├── train.py            # Training script
-│   ├── evaluate.py         # Model evaluation script
-│   └── dataset_loader.py   # PyTorch DataLoader for image folders
-│
-├── templates/
-│   └── index.html          # Web UI (Bootstrap + vanilla JS)
-│
-├── static/
-│   ├── style.css           # Custom CSS (gradient backgrounds, cards)
-│   ├── css/               # Additional stylesheets
-│   └── js/                # Additional JavaScript
-│
-├── docs/
-│   ├── 1_training.md       # Model training documentation
-│   └── 2_render_app.md     # Render deployment guide
-│
-├── notebooks/
-│   ├── Indigenous_Cattle_Breed_Classifier.ipynb     # EDA & training notebook
-│   └── Indigenous_Cattle_Breed_Classifier_Old_Version.ipynb
-│
-├── assets/
-│   ├── demo.gif            # Application demo animation
-│   └── 00000008.jpg        # Sample asset image
-│
-└── models/                 # (auto-created) Downloaded model & class labels
-    ├── cattle_breed_classifier_full_model.pth
-    └── classes.txt
-```
-
----
-
-## 🧪 Training Your Own Model
-
-If you want to retrain the model on a different dataset:
-
-### 1. Prepare your data
-
-Organize images into a folder structure where each subfolder is a breed class:
-
-```
-Cattle_Resized/
-├── Gir_Cow/
-│   ├── img1.jpg
-│   └── img2.jpg
-├── Sahiwal_Cow/
-│   ├── img1.jpg
-│   └── img2.jpg
-└── ...
-```
-
-### 2. Train the model
-
-```bash
-python src/train.py
-```
-
-Edit `src/train.py` to set your `data_dir` and `num_classes`:
-
-```python
-model = train_model(
-    data_dir='/path/to/Cattle_Resized',
-    num_classes=26,        # number of breed folders
-    num_epochs=25,
-    batch_size=8,
-    learning_rate=0.001
-)
-torch.save(model.state_dict(), 'cattle_breed_classifier.pth')
-```
-
-### 3. Evaluate the model
-
-```bash
-python src/evaluate.py
-```
-
-### 4. Export for the web app
-
-The web app expects a `.pth` file containing a dictionary with a `"state_dict"` key and a `classes.txt` file with comma-separated breed names. Upload these to Google Drive (or host them elsewhere) and update the URLs in `app.py`:
-
-```python
-export_file_url = 'https://your-host.com/path/to/model.pth'
-export_file_name = 'cattle_breed_classifier_full_model.pth'
-export_classes_url = 'https://your-host.com/path/to/classes.txt'
-export_classes_name = 'classes.txt'
-```
-
----
-
-## ☁️ Deployment
-
-### Render (recommended)
-
-1. Push your code to GitHub
-2. Create a new **Web Service** on [Render](https://render.com/)
-3. Connect your GitHub repository
-4. Set the build command: `pip install -r requirements.txt`
-5. Set the start command: `gunicorn --bind 0.0.0.0:$PORT app:app`
-6. Deploy!
-
-Full guide: see [`docs/2_render_app.md`](docs/2_render_app.md)
-
-### Heroku
-
-The repository includes a `Procfile`:
-
-```
-web: gunicorn --bind 0.0.0.0:$PORT app:app
-```
-
-Deploy as usual with the Heroku CLI.
-
-### Docker
-
-A `Dockerfile` is not included, but you can create one:
-
-```dockerfile
-FROM python:3.9-slim
-
-WORKDIR /app
-
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
-
-COPY . .
-
-RUN mkdir -p models
-
-EXPOSE 5001
-
-CMD ["gunicorn", "--bind", "0.0.0.0:5001", "app:app"]
-```
-
-Build and run:
-
-```bash
-docker build -t cattle-classifier .
-docker run -p 5001:5001 cattle-classifier
-```
-
----
-
-## 🌐 Environment Variables for Deployment
-
-When deploying to a cloud platform (Render, Heroku, etc.):
-
-| Variable | Purpose                                |
-| --------- | -------------------------------------- |
-| `PORT`    | Set by the platform; the app reads it  |
-
-No other environment variables are required — the model downloads automatically.
-
----
-
-## ⚠️ Known Limitations
-
-1. **Model download on startup** — The first request after a fresh deploy will be slow while the model downloads ~100 MB+ from Google Drive. Consider pre-baking the model into the container for faster cold starts.
-2. **No authentication** — The API is open; add rate limiting / auth for production use.
-3. **Input validation** — The app does not restrict file size or image dimensions. Add middleware if needed.
-4. **URL-based classification** — Makes an outbound HTTP request to fetch the image; ensure outbound network access is allowed in your deployment environment.
-
----
-
-## 🤝 Contributing
-
-Contributions are welcome!
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-Please ensure any new dependencies are added to `requirements.txt` and that the app still starts cleanly.
-
----
-
-## 📚 References
-
-- **PyTorch** — https://pytorch.org/
-- **ResNet paper** — [Deep Residual Learning for Image Recognition](https://arxiv.org/abs/1512.03385) (He et al., 2015)
-- **Training notebook** — [`notebooks/Indigenous_Cattle_Breed_Classifier.ipynb`](notebooks/Indigenous_Cattle_Breed_Classifier.ipynb)
-- **Dataset** — Indian-Cattle-Breed-Images (Google Drive)
-
----
-
-## 📄 License
-
-This project is licensed under the **MIT License** — see the [`LICENSE`](LICENSE) file for details.
-
----
-
-## 👨‍💻 Author
-
-Built by **[Ajit Kumar Singh](https://sajit9285.github.io/myportfolio)** — Data Scientist & Deep Learning enthusiast.
-
-- **Blog**: https://sajit9285.github.io/myportfolio
-- **Original web app**: https://cattle-breed-classifier.herokuapp.com
-- **Source code**: https://github.com/sajit9285/cattle-breed-classifier-webapp
-
-> Made with ❤️ for farmers and cattle enthusiasts.
-
----
-
-*Built with PyTorch, Flask, and Bootstrap.*
+## 🙏 Credits & license
+
+Created by [Ajit Kumar Singh](https://sajit9285.github.io/myportfolio).
+MIT licensed — see [LICENSE](LICENSE). Breed descriptors compiled from NBAGR
+registrations and ICAR/livestock literature; landrace entries are labelled as
+such where formal documentation is limited.

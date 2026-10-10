@@ -1,0 +1,12 @@
+{
+  "name": "Bovine AI — Indigenous Cattle Breed Classifier",
+  "short_name": "Bovine AI",
+  "description": "Identify 26 indigenous Indian cattle and buffalo breeds from a photo.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0b1210",
+  "theme_color": "#0b1210",
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}
