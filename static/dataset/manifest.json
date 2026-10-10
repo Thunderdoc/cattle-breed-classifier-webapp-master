@@ -58,5 +58,29 @@
     "breed": null,
     "name": "White Bull (draft type)",
     "credit": "Original project assets"
+  },
+  {
+    "file": "hariana-cow.jpg",
+    "breed": "hariana-cow",
+    "name": "Hariana Cow",
+    "credit": "Alchetron livestock archive"
+  },
+  {
+    "file": "jaffarabadi-buffalo.jpg",
+    "breed": "jaffarabadi-buffalo",
+    "name": "Jaffarabadi Buffalo",
+    "credit": "Times of Agriculture"
+  },
+  {
+    "file": "nagpuri-buffalo.jpg",
+    "breed": "nagpuri-buffalo",
+    "name": "Nagpuri Buffalo",
+    "credit": "Wikimedia Commons (CC)"
+  },
+  {
+    "file": "banni-buffalo.jpg",
+    "breed": "banni-buffalo",
+    "name": "Banni Buffalo",
+    "credit": "ETV Bharat (Kutch report)"
   }
 ]

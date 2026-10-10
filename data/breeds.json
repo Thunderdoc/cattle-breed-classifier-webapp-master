@@ -338,7 +338,8 @@
         "High fat yield"
       ],
       "summary": "The giant of Indian buffaloes, bred in the coastal tracts of Saurashtra; heavy-bodied, high-fat milchers maintained largely by traditional herders.",
-      "fun_fact": "Adult Jaffarabadi bulls can exceed 900 kg, making them the heaviest riverine buffalo in India."
+      "fun_fact": "Adult Jaffarabadi bulls can exceed 900 kg, making them the heaviest riverine buffalo in India.",
+      "image": "/static/dataset/jaffarabadi-buffalo.jpg"
     },
     {
       "slug": "banni-buffalo",
@@ -377,7 +378,8 @@
         "Recognised as a distinct breed in 2011"
       ],
       "summary": "A recently recognised, exceptionally resilient buffalo of the Kutch salt marshes, maintained by nomadic Maldhari herders on sparse, saline forage.",
-      "fun_fact": "Banni buffaloes graze almost entirely at night across the salt-affected Banni grassland — a behaviour unique among Indian buffalo breeds."
+      "fun_fact": "Banni buffaloes graze almost entirely at night across the salt-affected Banni grassland — a behaviour unique among Indian buffalo breeds.",
+      "image": "/static/dataset/banni-buffalo.jpg"
     },
     {
       "slug": "murrah-buffalo",
@@ -461,7 +463,8 @@
         "Also called Elitpur or Barari"
       ],
       "summary": "The buffalo of the Vidarbha plains, recognised by its long, flat, backward-swept horns and ability to work and milk in harsh heat.",
-      "fun_fact": "Nagpuri horn length can exceed one metre tip-to-tip, among the longest of any Indian buffalo."
+      "fun_fact": "Nagpuri horn length can exceed one metre tip-to-tip, among the longest of any Indian buffalo.",
+      "image": "/static/dataset/nagpuri-buffalo.jpg"
     },
     {
       "slug": "paras-cow",
@@ -705,7 +708,8 @@
         "One of the oldest described Indian breeds"
       ],
       "summary": "The classic dual-purpose cattle of the Haryana plains, whose bullocks have pulled India's farm carts for centuries while cows supply household milk.",
-      "fun_fact": "Hariana bullocks were the workhorses of Punjab canal-colony agriculture, prized for stamina in heavy clay soils."
+      "fun_fact": "Hariana bullocks were the workhorses of Punjab canal-colony agriculture, prized for stamina in heavy clay soils.",
+      "image": "/static/dataset/hariana-cow.jpg"
     },
     {
       "slug": "bvill-cow",

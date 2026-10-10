@@ -37,6 +37,10 @@ def test_heuristic_labels_reference_photos(engine):
         "khillar-cow.jpg": "Khillar Cow",
         "tharparkar-cow.jpg": "Tharparkar Cow",
         "white-bull.jpg": "Bhagnari Cow",
+        "hariana-cow.jpg": "Hariana Cow",
+        "jaffarabadi-buffalo.jpg": "Jaffarabadi Buffalo",
+        "nagpuri-buffalo.jpg": "Nagpuri Buffalo",
+        "banni-buffalo.jpg": "Banni Buffalo",
     }
     root = SAMPLE.parent
     for fname, expected in samples.items():

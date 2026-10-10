@@ -30,8 +30,6 @@ function Shell() {
   return (
     <>
       <a className="skip-link" href="#main">Skip to content</a>
-      <div className="bg-scene" aria-hidden="true" />
-      <div className="bg-grid" aria-hidden="true" />
       <Nav />
       <main id="main">
         <ErrorBoundary>

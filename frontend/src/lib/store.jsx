@@ -13,7 +13,7 @@ export function StoreProvider({ children }) {
   useEffect(() => {
     document.documentElement.dataset.theme = theme;
     const meta = document.querySelector('meta[name="theme-color"]');
-    if (meta) meta.content = theme === 'dark' ? '#0b1210' : '#f7f6f1';
+    if (meta) meta.content = theme === 'dark' ? '#191c16' : '#f2ede1';
   }, [theme]);
 
   useEffect(() => {

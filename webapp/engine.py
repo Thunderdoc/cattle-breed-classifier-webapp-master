@@ -62,6 +62,10 @@ class HeuristicEngine(BaseEngine):
         "Murrah_Buffalo": ((97, 97, 92), 0.45, 0.06),
         "Mehsana_Buffalo": ((124, 120, 113), 0.25, 0.25),
         "Surti_Buffalo": ((142, 120, 99), 0.25, 0.29),
+        "Jaffarabadi_Buffalo": ((104, 106, 107), 0.47, 0.24),
+        "Nagpuri_Buffalo": ((82, 82, 84), 0.68, 0.10),
+        "Banni_Buffalo": ((95, 79, 87), 0.53, 0.05),
+        "Hariana_Cow": ((175, 165, 166), 0.07, 0.55),
         "Bhagnari_Cow": ((228, 222, 219), 0.03, 0.85),
     }
 
