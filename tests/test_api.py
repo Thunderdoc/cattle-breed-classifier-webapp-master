@@ -163,3 +163,19 @@ def test_stats(client):
     body = client.get("/api/v1/stats").get_json()
     assert body["breeds"] == 26
     assert body["cattle"] + body["buffalo"] == 26
+
+
+def test_dataset_endpoint_lists_bundled_photos(client):
+    resp = client.get("/api/v1/dataset")
+    assert resp.status_code == 200
+    payload = resp.get_json()
+    assert payload["breeds_with_images"] >= 14
+    assert payload["total_images"] >= 19
+    slugs = {b["breed"] for b in payload["breeds"]}
+    assert "devni-cow" in slugs and "gir-cow" in slugs
+    multi = [b for b in payload["breeds"] if b["count"] >= 2]
+    assert len(multi) >= 5
+    for breed in payload["breeds"]:
+        for img in breed["images"]:
+            assert img["url"].startswith("/static/dataset/")
+            assert img["credit"]

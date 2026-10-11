@@ -82,5 +82,11 @@
     "breed": "banni-buffalo",
     "name": "Banni Buffalo",
     "credit": "ETV Bharat (Kutch report)"
+  },
+  {
+    "file": "devni-cow.jpg",
+    "breed": "devni-cow",
+    "name": "Deoni Cow",
+    "credit": "Native Cattle Breeds of India (field blog photo)"
   }
 ]

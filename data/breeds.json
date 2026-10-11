@@ -582,7 +582,8 @@
         "Recognised breed since 1970s"
       ],
       "summary": "A spotted dual-purpose breed of the Deccan, known for patterned coats and reliable bullocks for medium-farm draught work.",
-      "fun_fact": "Deoni coat patterns have local names — a fully white animal is called 'Balankya' and commands premium prices at fairs."
+      "fun_fact": "Deoni coat patterns have local names — a fully white animal is called 'Balankya' and commands premium prices at fairs.",
+      "image": "/static/dataset/devni-cow.jpg"
     },
     {
       "slug": "tharparkar-cow",

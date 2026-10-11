@@ -13,10 +13,10 @@ const METRICS = [
 
 export default function ModelCard() {
   const [system, setSystem] = useState(null);
-  const [samples, setSamples] = useState([]);
+  const [dataset, setDataset] = useState(null);
   useEffect(() => {
     api.system().then(setSystem).catch(() => {});
-    api.samples().then(setSamples).catch(() => {});
+    api.dataset().then(setDataset).catch(() => {});
   }, []);
 
   return (
@@ -123,29 +123,40 @@ export default function ModelCard() {
           <div className="card">
             <h2 className="card-title mb-3">Bundled reference dataset</h2>
             <p className="dim mb-3" style={{ fontSize: '.92rem', maxWidth: '78ch' }}>
-              The service ships a small, real reference set: one verified field photograph per covered breed,
-              served from <code className="mono">/static/dataset/</code> and used by the studio&apos;s sample picker,
-              the catalogue plates and the demo engine&apos;s prototypes. Every image carries its provenance.
+              The service ships a real, multi-image reference set: verified field and press photographs per
+              covered breed, served from <code className="mono">/static/dataset/</code> and used by the
+              studio&apos;s sample picker, the catalogue plates and the demo engine&apos;s prototypes.
+              Every photograph carries its provenance; breeds without photography yet are drawn as colour plates.
             </p>
-            <div className="card card-flat" style={{ overflowX: 'auto' }}>
-              <table className="table">
-                <thead>
-                  <tr><th>Plate</th><th>Breed</th><th>File</th><th>Provenance</th></tr>
-                </thead>
-                <tbody>
-                  {samples.map((s, i) => (
-                    <tr key={s.url}>
-                      <td>
-                        <img src={s.url} alt={s.name} style={{ width: 56, height: 42, objectFit: 'cover', border: '1px solid var(--line-2)', borderRadius: 3 }} loading="lazy" />
-                      </td>
-                      <td style={{ color: 'var(--ink)' }}>{s.name}</td>
-                      <td><code>/static/dataset/{s.url.split('/').pop()}</code></td>
-                      <td>{s.credit || '—'}</td>
-                    </tr>
+            {dataset ? (
+              <>
+                <p className="eyebrow mb-2">
+                  {dataset.total_images} photographs · {dataset.breeds_with_images} breeds · provenance recorded per file
+                </p>
+                <div className="dataset-grid">
+                  {dataset.breeds.map((b) => (
+                    <figure className="dataset-card" key={b.breed}>
+                      <div className="dataset-thumbs">
+                        {b.images.map((im) => (
+                          <img key={im.url} src={im.url} alt={`${b.name} reference photograph`} loading="lazy" />
+                        ))}
+                      </div>
+                      <figcaption>
+                        <span className="dataset-name">{b.name}</span>
+                        <span className="dataset-count mono">{b.count} photo{b.count === 1 ? '' : 's'}</span>
+                        <ul className="dataset-credits">
+                          {b.images.map((im) => (
+                            <li key={im.url}>{im.credit || 'Provenance on file'}</li>
+                          ))}
+                        </ul>
+                      </figcaption>
+                    </figure>
                   ))}
-                </tbody>
-              </table>
-            </div>
+                </div>
+              </>
+            ) : (
+              <p className="dim">Dataset index unavailable.</p>
+            )}
           </div>
         </Reveal>
 

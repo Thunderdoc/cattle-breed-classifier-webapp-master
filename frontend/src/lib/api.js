@@ -30,6 +30,7 @@ export const api = {
   },
   breed: (slug) => fetch(`/api/v1/breeds/${slug}`).then(handle),
   samples: () => fetch('/api/v1/samples').then(handle),
+  dataset: () => fetch('/api/v1/dataset').then(handle),
 
   predictFile: (file, topN) => {
     const fd = new FormData();

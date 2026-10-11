@@ -216,6 +216,74 @@ def samples():
     return jsonify(items)
 
 
+@api.get("/api/v1/dataset")
+def dataset():
+    """Bundled multi-image reference dataset, grouped per breed with provenance.
+
+    Folders under static/dataset/<breed-slug>/ hold every verified photograph for
+    that breed (01 = reference plate, 02+ = additional field photos). Credits live
+    in gallery.json; breeds without a folder fall back to their reference plate.
+    """
+    gallery_path = SAMPLES_DIR / "gallery.json"
+    manifest_path = SAMPLES_DIR / "manifest.json"
+    credits: Dict[str, str] = {}
+    manifest: List[Dict[str, Any]] = []
+    if manifest_path.exists():
+        try:
+            manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+            credits = {m["file"]: m.get("credit", "") for m in manifest}
+        except (ValueError, KeyError):
+            manifest = []
+    breeds: List[Dict[str, Any]] = []
+    if gallery_path.exists():
+        try:
+            gallery = json.loads(gallery_path.read_text(encoding="utf-8")).get("breeds", [])
+        except ValueError:
+            gallery = []
+        for entry in gallery:
+            images = [
+                {
+                    "url": f"/static/dataset/{img['file']}",
+                    "credit": img.get("credit") or credits.get(img["file"].split("/", 1)[-1], ""),
+                }
+                for img in entry.get("images", [])
+                if (SAMPLES_DIR / img["file"]).is_file()
+            ]
+            if images:
+                breeds.append(
+                    {
+                        "breed": entry["breed"],
+                        "name": entry.get("name", entry["breed"]),
+                        "count": len(images),
+                        "images": images,
+                    }
+                )
+    covered = {b["breed"] for b in breeds}
+    for m in manifest:  # reference plates for breeds without a gallery folder
+        slug = m.get("breed")
+        if slug and slug not in covered and (SAMPLES_DIR / m["file"]).is_file():
+            breeds.append(
+                {
+                    "breed": slug,
+                    "name": m.get("name", slug),
+                    "count": 1,
+                    "images": [
+                        {"url": f"/static/dataset/{m['file']}", "credit": m.get("credit", "")}
+                    ],
+                }
+            )
+            covered.add(slug)
+    total = sum(b["count"] for b in breeds)
+    return jsonify(
+        {
+            "breeds": breeds,
+            "total_images": total,
+            "breeds_with_images": len(breeds),
+            "source": "Verified field & press photography bundled with the repository",
+        }
+    )
+
+
 @api.get("/api/v1/stats")
 def stats():
     all_breeds = breeds.breed_list()

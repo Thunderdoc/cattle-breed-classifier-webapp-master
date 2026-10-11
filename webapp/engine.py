@@ -67,6 +67,7 @@ class HeuristicEngine(BaseEngine):
         "Banni_Buffalo": ((95, 79, 87), 0.53, 0.05),
         "Hariana_Cow": ((175, 165, 166), 0.07, 0.55),
         "Bhagnari_Cow": ((228, 222, 219), 0.03, 0.85),
+        "Devni_Cow": ((146, 128, 124), 0.22, 0.32),
     }
 
     def __init__(self) -> None:
