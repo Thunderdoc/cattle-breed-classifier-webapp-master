@@ -131,7 +131,29 @@ export default function Classify() {
       let res;
       if (mode === 'url') {
         if (!/^https?:\/\//i.test(url)) throw new Error('Enter a valid http(s) image URL.');
-        res = await api.predictUrl(url, topN);
+        try {
+          res = await api.predictUrl(url, topN);
+        } catch (serverErr) {
+          // The service fetches server-side; on network-restricted deployments
+          // (or hosts the service cannot reach) retry from the visitor's own
+          // browser and classify the bytes as an upload.
+          let blob;
+          try {
+            const r = await fetch(url, { mode: 'cors' });
+            if (!r.ok) throw new Error(`HTTP ${r.status}`);
+            blob = await r.blob();
+          } catch {
+            throw new Error(
+              `${serverErr.message} Your browser could not read it directly either (the host blocks cross-origin access). Download the photograph and use Upload instead.`
+            );
+          }
+          if (!blob.type.startsWith('image/')) {
+            throw new Error('That URL did not return an image. Paste a direct link ending in .jpg, .png or .webp.');
+          }
+          const name = decodeURIComponent(url.split('/').pop()?.split('?')[0] || 'image.jpg');
+          setPreview(URL.createObjectURL(blob));
+          res = await api.predictFile(new File([blob], name, { type: blob.type }), topN);
+        }
       } else if (file instanceof File) {
         res = await api.predictFile(file, topN);
       } else if (typeof file === 'string' && file.startsWith('data:')) {
@@ -290,7 +312,7 @@ export default function Classify() {
                   onChange={(e) => setUrl(e.target.value)}
                 />
                 <div className="faint" style={{ fontSize: '.8rem', marginTop: '.5rem' }}>
-                  Direct image links only (…jpg / …png / …webp) — search-page URLs are not images.
+                  Direct image links only (…jpg / …png / …webp) — search-page URLs are not images. If this server cannot reach the host, your browser fetches the photo instead and classifies it as an upload.
                   Fetched server-side with SSRF protection; on network-restricted deployments external
                   hosts may be unreachable, so prefer Upload or a bundled sample.
                 </div>
