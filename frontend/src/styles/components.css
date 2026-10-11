@@ -314,3 +314,5 @@
   left: 0;
   color: var(--line-2);
 }
+
+.chip-row { display: flex; gap: .5rem; flex-wrap: wrap; }

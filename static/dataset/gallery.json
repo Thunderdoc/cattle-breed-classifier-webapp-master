@@ -79,6 +79,48 @@
           "credit": "Native Cattle Breeds of India (field blog photo)"
         }
       ]
+    },
+    {
+      "breed": "khillar-cow",
+      "name": "Khillar Cow",
+      "images": [
+        {
+          "file": "khillar-cow/01.jpg",
+          "credit": "TractorKarvan breed guide"
+        },
+        {
+          "file": "khillar-cow/02.jpg",
+          "credit": "Dairy Knowledge Portal (dairyknowledge.in) — bull at cattle fair"
+        }
+      ]
+    },
+    {
+      "breed": "jaffarabadi-buffalo",
+      "name": "Jaffarabadi Buffalo",
+      "images": [
+        {
+          "file": "jaffarabadi-buffalo/01.jpg",
+          "credit": "Times of Agriculture"
+        },
+        {
+          "file": "jaffarabadi-buffalo/02.jpg",
+          "credit": "DROST project field archive (drostproject.org)"
+        }
+      ]
+    },
+    {
+      "breed": "banni-buffalo",
+      "name": "Banni Buffalo",
+      "images": [
+        {
+          "file": "banni-buffalo/01.jpg",
+          "credit": "ETV Bharat"
+        },
+        {
+          "file": "banni-buffalo/02.jpg",
+          "credit": "EJAtlas — Banni grasslands, Kutch (Maldhari herd)"
+        }
+      ]
     }
   ]
 }

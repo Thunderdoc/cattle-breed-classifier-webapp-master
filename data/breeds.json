@@ -940,7 +940,8 @@
         "Bullocks fetch premium prices"
       ],
       "summary": "A heavyweight draught breed of the Nara valley, producing some of the largest and most powerful bullocks in South Asia.",
-      "fun_fact": "Bhagnari bullocks are so prized for heavy carting that a single pair can out-pull a small tractor on soft ground, say herders."
+      "fun_fact": "Bhagnari bullocks are so prized for heavy carting that a single pair can out-pull a small tractor on soft ground, say herders.",
+      "image": "/static/dataset/white-bull.jpg"
     },
     {
       "slug": "lakhori-cow",

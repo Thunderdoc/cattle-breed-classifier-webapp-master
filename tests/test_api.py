@@ -127,7 +127,7 @@ def test_legacy_aliases(client):
 
 
 def test_spa_routes(client):
-    for path in ("/", "/classify", "/breeds", "/breeds/gir-cow", "/docs", "/model", "/about"):
+    for path in ("/", "/classify", "/breeds", "/breeds/gir-cow", "/dataset", "/docs", "/model", "/about"):
         r = client.get(path)
         assert r.status_code == 200, path
         assert "text/html" in r.content_type

@@ -7,6 +7,7 @@ import Breeds from './pages/Breeds';
 import BreedDetail from './pages/BreedDetail';
 import Classify from './pages/Classify';
 import Docs from './pages/Docs';
+import Dataset from './pages/Dataset';
 import Landing from './pages/Landing';
 import ModelCard from './pages/ModelCard';
 import NotFound from './pages/NotFound';
@@ -37,6 +38,7 @@ function Shell() {
             <Route path="/" element={<Landing />} />
             <Route path="/classify" element={<Classify />} />
             <Route path="/breeds" element={<Breeds />} />
+            <Route path="/dataset" element={<Dataset />} />
             <Route path="/breeds/:slug" element={<BreedDetail />} />
             <Route path="/docs" element={<Docs />} />
             <Route path="/model" element={<ModelCard />} />

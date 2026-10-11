@@ -5,7 +5,7 @@ import { useLocalStorage } from './hooks';
 const StoreContext = createContext(null);
 
 export function StoreProvider({ children }) {
-  const [theme, setTheme] = useLocalStorage('bovine.theme', 'dark');
+  const [theme, setTheme] = useLocalStorage('bovine.theme', 'light');
   const [toasts, setToasts] = useState([]);
   const [system, setSystem] = useState(null);
   const [paletteOpen, setPaletteOpen] = useState(false);

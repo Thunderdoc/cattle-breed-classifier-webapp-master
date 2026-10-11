@@ -2,9 +2,18 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Scan } from 'lucide-react';
 import { PageMeta } from '../components/chrome';
-import { Accordion, CodeBlock, ConfidenceBar, Reveal, Stat } from '../components/ui';
+import { Accordion, CodeBlock, ConfidenceBar, Reveal } from '../components/ui';
 import { api } from '../lib/api';
 import { useStore } from '../lib/store';
+
+const INDEX_ROWS = [
+  { slug: 'gir-cow', name: 'Gir Cow', plate: 'Pl. I' },
+  { slug: 'sahiwal-cow', name: 'Sahiwal Cow', plate: 'Pl. II' },
+  { slug: 'red-sindhi-cow', name: 'Red Sindhi Cow', plate: 'Pl. III' },
+  { slug: 'tharparkar-cow', name: 'Tharparkar Cow', plate: 'Pl. IV' },
+  { slug: 'khillar-cow', name: 'Khillar Cow', plate: 'Pl. V' },
+  { slug: 'murrah-buffalo', name: 'Murrah Buffalo', plate: 'Pl. VI' },
+];
 
 const API_SNIPPETS = {
   cURL: `# classify an upload
@@ -131,11 +140,9 @@ const CAPABILITIES = [
 ];
 
 export default function Landing() {
-  const [stats, setStats] = useState(null);
   const [spotlight, setSpotlight] = useState([]);
 
   useEffect(() => {
-    api.stats().then(setStats).catch(() => {});
     api.breeds().then((d) => setSpotlight(d.breeds.slice(0, 8))).catch(() => {});
   }, []);
 
@@ -143,49 +150,72 @@ export default function Landing() {
     <>
       <PageMeta description="A field catalogue and classifier for 26 indigenous Indian cattle and buffalo breeds. Upload a photograph; receive ranked, explainable breed predictions from a fine-tuned ResNet-18." />
 
-      {/* ── HERO ─────────────────────────────────────────────────────── */}
+      {/* ── MASTHEAD ────────────────────────────────────────────────── */}
       <section className="hero">
-        <div className="container hero-grid">
-          <div>
-            <Reveal>
-              <span className="kicker">Field catalogue · indigenous cattle of India</span>
-            </Reveal>
-            <Reveal delay={1}>
-              <h1 className="h-display" style={{ marginTop: '1.1rem' }}>
-                Twenty-six breeds,
-                <br />
-                known <em>by sight.</em>
-              </h1>
-            </Reveal>
+        <div className="container">
+          <div className="folio" aria-hidden="true">
+            <span>Field catalogue of indigenous cattle</span>
+            <span className="folio-mid">Edition II · revised &amp; verified</span>
+            <span>Pl. I–XXVI</span>
+          </div>
+          <div className="hero-grid">
+            <div>
+              <Reveal>
+                <h1 className="h-display masthead-title">
+                  Twenty-six breeds,
+                  <br />
+                  known <em>by sight.</em>
+                </h1>
+              </Reveal>
+              <Reveal delay={1}>
+                <p className="lead mt-3" style={{ maxWidth: '44ch' }}>
+                  Photograph a cow or buffalo and this service names its breed — a ResNet-18
+                  fine-tuned on field photographs of indigenous Indian cattle, answering in
+                  milliseconds beside a written catalogue of every breed it knows.
+                </p>
+              </Reveal>
+              <Reveal delay={2}>
+                <div className="hero-cta">
+                  <Link to="/classify" className="btn btn-primary btn-lg">
+                    <Scan size={17} /> Classify a photograph
+                  </Link>
+                  <Link to="/dataset" className="btn btn-outline btn-lg">
+                    Open the field archive
+                  </Link>
+                </div>
+              </Reveal>
+              <Reveal delay={3}>
+                <nav className="index-ledger mt-4" aria-label="Index of plates">
+                  <p className="index-head">Index of plates</p>
+                  <ul>
+                    {INDEX_ROWS.map((r) => (
+                      <li key={r.slug}>
+                        <Link to={`/breeds/${r.slug}`}>{r.name}</Link>
+                        <span className="dots" aria-hidden="true" />
+                        <span className="mono">{r.plate}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <p className="index-note">
+                    …and twenty further entries, each with its tract, coat and yield — plus the
+                    bundled photograph archive. <Link to="/dataset">See the field archive</Link>.
+                  </p>
+                </nav>
+              </Reveal>
+            </div>
             <Reveal delay={2}>
-              <p className="lead mt-3">
-                Photograph a cow or buffalo and this service will name its breed — a ResNet-18 fine-tuned on
-                roughly four thousand images of indigenous Indian cattle, serving ranked predictions in
-                milliseconds, alongside a written catalogue of every breed it knows.
-              </p>
-            </Reveal>
-            <Reveal delay={3}>
-              <div className="hero-cta">
-                <Link to="/classify" className="btn btn-primary btn-lg">
-                  <Scan size={17} /> Classify a photograph
-                </Link>
-                <Link to="/breeds" className="btn btn-outline btn-lg">
-                  Read the catalogue
-                </Link>
-              </div>
-            </Reveal>
-            <Reveal delay={4}>
-              <div className="ledger">
-                <Stat value={stats?.breeds ?? 26} label="breeds catalogued" />
-                <Stat value={stats?.states ?? 17} label="states & tracts" />
-                <Stat value={4000} suffix="+" label="training photographs" />
-                <Stat value={50} suffix=" ms" label="median inference" />
+              <div className="plate-stack">
+                <span className="stamp-seal" aria-hidden="true">
+                  verified
+                  <br />
+                  field
+                  <br />
+                  photographs
+                </span>
+                <HeroPlate />
               </div>
             </Reveal>
           </div>
-          <Reveal delay={2}>
-            <HeroPlate />
-          </Reveal>
         </div>
       </section>
 

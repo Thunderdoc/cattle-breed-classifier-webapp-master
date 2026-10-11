@@ -22,6 +22,7 @@ const NAV = [
   { to: '/', label: 'Home' },
   { to: '/classify', label: 'Classify' },
   { to: '/breeds', label: 'Breeds' },
+  { to: '/dataset', label: 'Archive' },
   { to: '/docs', label: 'API Docs' },
   { to: '/model', label: 'Model Card' },
   { to: '/about', label: 'About' },

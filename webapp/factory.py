@@ -163,7 +163,7 @@ def create_app() -> Flask:
             return jsonify({"error": "Not found", "code": "not_found"}), 404
         # Known SPA routes → 200; anything else → 404 status with the app shell
         parts = [p for p in path.split("/") if p]
-        known = (len(parts) == 1 and parts[0] in {"classify", "breeds", "docs", "model", "about"}) or (
+        known = (len(parts) == 1 and parts[0] in {"classify", "breeds", "dataset", "docs", "model", "about"}) or (
             len(parts) == 2 and parts[0] == "breeds"
         )
         return _serve_spa(200 if known else 404)
