@@ -224,6 +224,7 @@ export default function Landing() {
 
       {/* ── SPECIMEN BAND ───────────────────────────────────────────── */}
       <div className="specimen-band" aria-label="Specimen plates from the field archive">
+        <span className="band-label">Specimen drawer — hover to pause, click to open an entry</span>
         <div className="specimen-track">
           {[0, 1].map((dup) => (
             <React.Fragment key={dup}>
@@ -455,6 +456,21 @@ export default function Landing() {
           </Reveal>
         </div>
       </section>
+      {/* ── COLOPHON ────────────────────────────────────────────────── */}
+      <div className="container colophon">
+        <div className="folio" aria-hidden="true">
+          <span>Colophon</span>
+          <span className="folio-mid">end of edition II</span>
+          <span>Pl. XXVI</span>
+        </div>
+        <p>
+          Set in Fraunces, Inter and JetBrains Mono. Plates drawn from the bundled field
+          archive; where no photograph is filed yet, a colour plate is drawn from the
+          breed&apos;s recorded coat. Rules, stamps and ledgers after nineteenth-century
+          natural-history catalogues. Built as a public service for the people who keep
+          these breeds.
+        </p>
+      </div>
     </>
   );
 }
