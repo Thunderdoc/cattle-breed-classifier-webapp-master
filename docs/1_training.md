@@ -18,7 +18,7 @@ The [Indian-Cattle-Breed-Images](https://drive.google.com/u/0/uc?id=1nSN9SpDJEAH
 >Since all the images were collected through internet via several sources like *YouTube*, *Pinterest*, *Google Images* etc., the training images were not cleaned, and thus they contained large amount of noise. This comes mostly in the form of intense colors, low quality, blurr and sometimes wrong labels. All images were rescaled to have a maximum side length of 224 pixels.
 
 #### Data Citation
-Ajit Kumar Singh, Data Scientist, Indian-Cattle-Breed-Images - 2020
+Ankit Kumar Singh, Data Scientist, Indian-Cattle-Breed-Images - 2020
 
 
 #### Retrieving the data

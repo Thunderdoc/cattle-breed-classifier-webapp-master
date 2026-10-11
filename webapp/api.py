@@ -135,6 +135,8 @@ def system():
     return jsonify(
         {
             "name": "Indigenous Cattle Breed Classifier",
+            "author": (settings.site.get("author") or {}).get("name", "Ankit Kumar Singh"),
+            "author_url": (settings.site.get("author") or {}).get("website", "https://sajit9285.github.io/myportfolio"),
             "version": settings.site.get("version", "2.0.0"),
             "engine": info,
             "classes": len(breeds.class_names()),

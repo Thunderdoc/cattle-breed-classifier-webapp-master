@@ -194,7 +194,8 @@ front-end build on every push/PR.
 
 ## 🙏 Credits & license
 
-Created by [Ajit Kumar Singh](https://sajit9285.github.io/myportfolio).
+Created and maintained by [Ankit Kumar Singh](https://sajit9285.github.io/myportfolio).
+Every screen, service and script in this repository is his work.
 MIT licensed — see [LICENSE](LICENSE). Breed descriptors compiled from NBAGR
 registrations and ICAR/livestock literature; landrace entries are labelled as
 such where formal documentation is limited.

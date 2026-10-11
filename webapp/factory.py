@@ -1,4 +1,7 @@
-"""Flask application factory: SPA serving, security headers, CORS, errors."""
+"""Flask application factory: SPA serving, security headers, CORS, errors.
+
+Author: Ankit Kumar Singh <https://sajit9285.github.io/myportfolio>
+"""
 
 from __future__ import annotations
 

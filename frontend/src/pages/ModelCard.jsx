@@ -167,7 +167,7 @@ export default function ModelCard() {
               snippets={{
                 BibTeX: `@software{bovine_ai_2026,
   title  = {Indigenous Cattle Breed Classifier},
-  author = {Singh, Ajit Kumar},
+  author = {Singh, Ankit Kumar},
   year   = {2026},
   url    = {https://github.com/sajit9285/cattle-breed-classifier-webapp},
   note   = {ResNet-18 fine-tune over 26 indigenous Indian breeds}

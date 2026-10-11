@@ -133,7 +133,7 @@ export function Footer() {
           </div>
           <div>
             <h5>Author</h5>
-            <a href="https://sajit9285.github.io/myportfolio" target="_blank" rel="noreferrer noopener">Ajit Kumar Singh</a>
+            <a href="https://sajit9285.github.io/myportfolio" target="_blank" rel="noreferrer noopener">Ankit Kumar Singh</a>
             <a href="https://github.com/sajit9285" target="_blank" rel="noreferrer noopener">GitHub</a>
             <Link to="/about#license">License (MIT)</Link>
           </div>

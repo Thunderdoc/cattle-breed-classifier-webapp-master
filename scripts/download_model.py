@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """Fetch the trained checkpoint + class list into models/.
 
+Author: Ankit Kumar Singh <https://sajit9285.github.io/myportfolio>
+
 Defaults to the original Google Drive locations; override with the
 EXPORT_FILE_URL / EXPORT_CLASSES_URL environment variables to point at your
 own object storage (any http(s) URL works).

@@ -77,7 +77,7 @@ export default function About() {
             <p className="dim">
               Created and maintained by{' '}
               <a href="https://sajit9285.github.io/myportfolio" target="_blank" rel="noreferrer noopener" style={{ color: 'var(--accent)', fontWeight: 600 }}>
-                Ajit Kumar Singh
+                Ankit Kumar Singh
               </a>
               . Released under the MIT License — use it, fork it, ship it to the field.
             </p>
