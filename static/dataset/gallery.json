@@ -1,0 +1,126 @@
+{
+  "breeds": [
+    {
+      "breed": "sahiwal-cow",
+      "name": "Sahiwal Cow",
+      "images": [
+        {
+          "file": "sahiwal-cow/01.jpg",
+          "credit": "Karnal Dairy Farm via TradeIndia"
+        },
+        {
+          "file": "sahiwal-cow/02.jpg",
+          "credit": "Gupta Dairy Farm, Haryana (NDRI-line Sahiwal)"
+        }
+      ]
+    },
+    {
+      "breed": "red-sindhi-cow",
+      "name": "Red Sindhi Cow",
+      "images": [
+        {
+          "file": "red-sindhi-cow/01.jpg",
+          "credit": "Public web photo (Pinterest: red-gold)"
+        },
+        {
+          "file": "red-sindhi-cow/02.jpg",
+          "credit": "ILRI via Flickr (CC) — Kalasi farm, north India"
+        }
+      ]
+    },
+    {
+      "breed": "murrah-buffalo",
+      "name": "Murrah Buffalo",
+      "images": [
+        {
+          "file": "murrah-buffalo/01.jpg",
+          "credit": "Pexels (free license)"
+        },
+        {
+          "file": "murrah-buffalo/02.jpg",
+          "credit": "Gupta Dairy Farm, Haryana (farm photo with calf)"
+        }
+      ]
+    },
+    {
+      "breed": "tharparkar-cow",
+      "name": "Tharparkar Cow",
+      "images": [
+        {
+          "file": "tharparkar-cow/01.jpg",
+          "credit": "The Rajasthan Express (press photo)"
+        },
+        {
+          "file": "tharparkar-cow/02.jpg",
+          "credit": "The Rajasthan Express breed guide (cow panel crop)"
+        }
+      ]
+    },
+    {
+      "breed": "dangi-cow",
+      "name": "Dangi Cow",
+      "images": [
+        {
+          "file": "dangi-cow/01.jpg",
+          "credit": "GOLX breed archive"
+        },
+        {
+          "file": "dangi-cow/02.jpg",
+          "credit": "Alchetron — Dangi Cattle Breeding Farm & Research Station, Igatpuri"
+        }
+      ]
+    },
+    {
+      "breed": "devni-cow",
+      "name": "Deoni",
+      "images": [
+        {
+          "file": "devni-cow/01.jpg",
+          "credit": "Native Cattle Breeds of India (field blog photo)"
+        }
+      ]
+    },
+    {
+      "breed": "khillar-cow",
+      "name": "Khillar Cow",
+      "images": [
+        {
+          "file": "khillar-cow/01.jpg",
+          "credit": "TractorKarvan breed guide"
+        },
+        {
+          "file": "khillar-cow/02.jpg",
+          "credit": "Dairy Knowledge Portal (dairyknowledge.in) — bull at cattle fair"
+        }
+      ]
+    },
+    {
+      "breed": "jaffarabadi-buffalo",
+      "name": "Jaffarabadi Buffalo",
+      "images": [
+        {
+          "file": "jaffarabadi-buffalo/01.jpg",
+          "credit": "Times of Agriculture"
+        },
+        {
+          "file": "jaffarabadi-buffalo/02.jpg",
+          "credit": "DROST project field archive (drostproject.org)"
+        }
+      ]
+    },
+    {
+      "breed": "banni-buffalo",
+      "name": "Banni Buffalo",
+      "images": [
+        {
+          "file": "banni-buffalo/01.jpg",
+          "credit": "ETV Bharat"
+        },
+        {
+          "file": "banni-buffalo/02.jpg",
+          "credit": "EJAtlas — Banni grasslands, Kutch (Maldhari herd)"
+        }
+      ]
+    }
+  ]
+}

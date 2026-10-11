@@ -1,0 +1,5 @@
+# Optional PyTorch runtime — required only to serve the trained checkpoint.
+# Without it the app boots with the clearly-labelled heuristic demo engine.
+torch>=2.0
+torchvision>=0.15
+gdown>=4.7
