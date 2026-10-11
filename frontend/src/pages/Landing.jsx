@@ -158,6 +158,9 @@ export default function Landing() {
             <span className="folio-mid">Edition II · revised &amp; verified</span>
             <span>Pl. I–XXVI</span>
           </div>
+          <span className="marginalia" aria-hidden="true">
+            Bos indicus · Bos bubalis — plates after living animals
+          </span>
           <div className="hero-grid">
             <div>
               <Reveal>
@@ -168,7 +171,7 @@ export default function Landing() {
                 </h1>
               </Reveal>
               <Reveal delay={1}>
-                <p className="lead mt-3" style={{ maxWidth: '44ch' }}>
+                <p className="lead lead-drop mt-3" style={{ maxWidth: '44ch' }}>
                   Photograph a cow or buffalo and this service names its breed — a ResNet-18
                   fine-tuned on field photographs of indigenous Indian cattle, answering in
                   milliseconds beside a written catalogue of every breed it knows.
@@ -219,15 +222,25 @@ export default function Landing() {
         </div>
       </section>
 
-      {/* ── INDEX TICKER ─────────────────────────────────────────────── */}
-      <div className="marquee" aria-hidden="true">
-        <div className="marquee-track">
+      {/* ── SPECIMEN BAND ───────────────────────────────────────────── */}
+      <div className="specimen-band" aria-label="Specimen plates from the field archive">
+        <div className="specimen-track">
           {[0, 1].map((dup) => (
             <React.Fragment key={dup}>
-              <span>Gir</span><span>Sahiwal</span><span>Murrah</span><span>Tharparkar</span>
-              <span>Red Sindhi</span><span>Mehsana</span><span>Surti</span><span>Jaffarabadi</span>
-              <span>Hariana</span><span>Khillar</span><span>Dangi</span><span>Deoni</span>
-              <span>Banni</span><span>Nagpuri</span><span>Bhagnari</span>
+              {spotlight.map((b) => (
+                <Link className="specimen" to={`/breeds/${b.slug}`} key={`${dup}-${b.slug}`} tabIndex={dup ? -1 : 0}>
+                  {b.image ? (
+                    <img src={b.image} alt="" loading="lazy" />
+                  ) : (
+                    <span
+                      className="specimen-swatch"
+                      style={{ background: `rgb(${(b.color_rgb || [120, 110, 100]).join(',')})` }}
+                      aria-hidden="true"
+                    />
+                  )}
+                  <span className="specimen-name">{b.name}</span>
+                </Link>
+              ))}
             </React.Fragment>
           ))}
         </div>

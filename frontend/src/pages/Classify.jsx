@@ -41,6 +41,7 @@ export default function Classify() {
   const [batchFiles, setBatchFiles] = useState([]);
   const [batchResults, setBatchResults] = useState(null);
   const [cameraOn, setCameraOn] = useState(false);
+  const [cameraNote, setCameraNote] = useState(null);
 
   const fileRef = useRef(null);
   const videoRef = useRef(null);
@@ -65,6 +66,12 @@ export default function Classify() {
         }
       }, 40);
     } catch {
+      const framed = window.self !== window.top;
+      setCameraNote(
+        framed
+          ? 'The embedded preview frame does not grant camera permission.'
+          : 'Camera unavailable here (permission denied or no device).',
+      );
       toast('Camera unavailable in this browser context — use upload or paste instead.', 'warn');
     }
   };
@@ -344,6 +351,17 @@ export default function Classify() {
                   ) : (
                     <button className="btn btn-outline" onClick={startCamera}><Camera size={16} /> Start camera</button>
                   )}
+                  {cameraNote && (
+                    <p className="dim mt-2" style={{ fontSize: '.8rem' }} role="status">
+                      {cameraNote} Use upload or paste instead
+                      {window.self !== window.top && (
+                        <>
+                          {' '}— or <a href={`${window.location.origin}/classify`} target="_blank" rel="noreferrer">open the studio in its own tab</a> to enable the camera.
+                        </>
+                      )}
+                      .
+                    </p>
+                  )}
                 </div>
               </div>
             )}
@@ -451,7 +469,7 @@ export default function Classify() {
                     }}
                     title={`${s.name}${s.credit ? ` · photo: ${s.credit}` : ''}`}
                   >
-                    <img src={s.url} alt={s.name} loading="lazy" />
+                    <img src={s.url} alt="" loading="lazy" />
                     <span className="cap">{s.name}</span>
                   </button>
                 ))}
