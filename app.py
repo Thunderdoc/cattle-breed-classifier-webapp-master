@@ -1,6 +1,6 @@
 """Indigenous Cattle Breed Classifier — production entrypoint.
 
-Author: Ankit Kumar Singh <https://sajit9285.github.io/myportfolio>
+Author: Ankit Kumar Singh <https://ankit-kumar-portfolio-beta.vercel.app>
 
 Run locally:      python app.py
 Run in prod:      gunicorn -c gunicorn_conf.py app:app

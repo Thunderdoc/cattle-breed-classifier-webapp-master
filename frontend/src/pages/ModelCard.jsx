@@ -169,7 +169,7 @@ export default function ModelCard() {
   title  = {Indigenous Cattle Breed Classifier},
   author = {Singh, Ankit Kumar},
   year   = {2026},
-  url    = {https://github.com/sajit9285/cattle-breed-classifier-webapp},
+  url    = {https://github.com/Thunderdoc/cattle-breed-classifier-webapp-master},
   note   = {ResNet-18 fine-tune over 26 indigenous Indian breeds}
 }`,
                 Retrain: `# 1 — fetch the dataset, then:

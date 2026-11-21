@@ -448,7 +448,7 @@ export default function Landing() {
                 <Link to="/classify" className="btn btn-primary btn-lg">
                   <Scan size={17} /> Open the studio
                 </Link>
-                <a className="btn btn-outline btn-lg" href="https://github.com/sajit9285/cattle-breed-classifier-webapp" target="_blank" rel="noreferrer noopener">
+                <a className="btn btn-outline btn-lg" href="https://github.com/Thunderdoc/cattle-breed-classifier-webapp-master" target="_blank" rel="noreferrer noopener">
                   Source & license
                 </a>
               </div>

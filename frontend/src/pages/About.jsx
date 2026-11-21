@@ -27,6 +27,13 @@ export default function About() {
               has never changed — give farmers, cooperatives, vets and researchers a free, instant, honest answer to
               “what breed is this?”.
             </p>
+            <p className="dim mt-3" style={{ maxWidth: '78ch', fontSize: '.9rem' }}>
+              The model, dataset and training code originate from the 2020 project by{' '}
+              <a href="https://github.com/ajitsingh98/cattle-breed-classifier-webapp" target="_blank" rel="noreferrer noopener" style={{ color: 'var(--accent)', fontWeight: 600 }}>
+                Ajit Kumar Singh
+              </a>
+              ; the v2.0 rewrite — React front-end, Flask service, tests, CI and breed encyclopedia — is Ankit Kumar Singh&apos;s work.
+            </p>
             <div className="feature-grid mt-4" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))' }}>
               {[
                 ['PyTorch', 'ResNet-18 fine-tune, CPU-friendly inference'],
@@ -64,7 +71,7 @@ export default function About() {
                 all welcome — the encyclopedia explicitly separates registered breeds from landraces so contributions
                 can be credited and provenance kept honest.
               </p>
-              <a className="btn btn-primary mt-3" href="https://github.com/sajit9285/cattle-breed-classifier-webapp" target="_blank" rel="noreferrer noopener">
+              <a className="btn btn-primary mt-3" href="https://github.com/Thunderdoc/cattle-breed-classifier-webapp-master" target="_blank" rel="noreferrer noopener">
                 <Github size={16} /> Open the repository
               </a>
             </div>
@@ -76,7 +83,7 @@ export default function About() {
             <h2 className="card-title mb-2">Author &amp; license</h2>
             <p className="dim">
               Created and maintained by{' '}
-              <a href="https://sajit9285.github.io/myportfolio" target="_blank" rel="noreferrer noopener" style={{ color: 'var(--accent)', fontWeight: 600 }}>
+              <a href="https://ankit-kumar-portfolio-beta.vercel.app" target="_blank" rel="noreferrer noopener" style={{ color: 'var(--accent)', fontWeight: 600 }}>
                 Ankit Kumar Singh
               </a>
               . Released under the MIT License — use it, fork it, ship it to the field.

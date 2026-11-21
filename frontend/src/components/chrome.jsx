@@ -77,7 +77,7 @@ export function Nav() {
           <button className="btn btn-ghost btn-icon" onClick={toggleTheme} aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`}>
             {theme === 'dark' ? <Sun size={17} /> : <Moon size={17} />}
           </button>
-          <a className="btn btn-ghost btn-icon" href="https://github.com/sajit9285/cattle-breed-classifier-webapp" target="_blank" rel="noreferrer noopener" aria-label="GitHub repository">
+          <a className="btn btn-ghost btn-icon" href="https://github.com/Thunderdoc/cattle-breed-classifier-webapp-master" target="_blank" rel="noreferrer noopener" aria-label="GitHub repository">
             <Github size={17} />
           </a>
           <Link to="/classify" className="btn btn-primary btn-sm">
@@ -127,14 +127,14 @@ export function Footer() {
           <div>
             <h5>Resources</h5>
             <Link to="/about">About the project</Link>
-            <a href="https://github.com/sajit9285/cattle-breed-classifier-webapp" target="_blank" rel="noreferrer noopener">Source code</a>
+            <a href="https://github.com/Thunderdoc/cattle-breed-classifier-webapp-master" target="_blank" rel="noreferrer noopener">Source code</a>
             <a href="/health" target="_blank" rel="noreferrer">Health endpoint</a>
             <a href="/metrics" target="_blank" rel="noreferrer">Metrics</a>
           </div>
           <div>
             <h5>Author</h5>
-            <a href="https://sajit9285.github.io/myportfolio" target="_blank" rel="noreferrer noopener">Ankit Kumar Singh</a>
-            <a href="https://github.com/sajit9285" target="_blank" rel="noreferrer noopener">GitHub</a>
+            <a href="https://ankit-kumar-portfolio-beta.vercel.app" target="_blank" rel="noreferrer noopener">Ankit Kumar Singh</a>
+            <a href="https://github.com/Thunderdoc" target="_blank" rel="noreferrer noopener">GitHub</a>
             <Link to="/about#license">License (MIT)</Link>
           </div>
         </div>

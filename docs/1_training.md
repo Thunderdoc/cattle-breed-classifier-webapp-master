@@ -1,5 +1,10 @@
 # Training the Model
 
+> **Note:** This document describes the upstream 2020 training run by Ajit Kumar Singh
+> ([ajitsingh98/cattle-breed-classifier-webapp](https://github.com/ajitsingh98/cattle-breed-classifier-webapp)),
+> from which this repository's model, dataset, training code and notebooks originate.
+> The first-person voice below is the original author's.
+
 1.  Deep learning library
 2.  Setting up Colab
 3.  Getting the data
@@ -18,7 +23,7 @@ The [Indian-Cattle-Breed-Images](https://drive.google.com/u/0/uc?id=1nSN9SpDJEAH
 >Since all the images were collected through internet via several sources like *YouTube*, *Pinterest*, *Google Images* etc., the training images were not cleaned, and thus they contained large amount of noise. This comes mostly in the form of intense colors, low quality, blurr and sometimes wrong labels. All images were rescaled to have a maximum side length of 224 pixels.
 
 #### Data Citation
-Ankit Kumar Singh, Data Scientist, Indian-Cattle-Breed-Images - 2020
+Ajit Kumar Singh, Data Scientist, Indian-Cattle-Breed-Images - 2020
 
 
 #### Retrieving the data
@@ -33,7 +38,7 @@ wget https://drive.google.com/u/0/uc?id=1nSN9SpDJEAHe4pCmKWy0X7oCPyx4BrjT&export
 I used the Resnet-50 CNN architecture.  The model took about 30 min to run on Google Colab with GPU. 
 
 ### Training the Deep Learning Model
-The code used for training the data is available in the repository [sajit9285/cattle-breed-classifier](https://github.com/sajit9285/cattle-breed-classifier-webapp) in the `src` section. I have also appended the notebook that I created for EDA purpose and It is in `notebook` section.
+The code used for training the data is available in the repository [ajitsingh98/cattle-breed-classifier-webapp](https://github.com/ajitsingh98/cattle-breed-classifier-webapp) in the `src` section. I have also appended the notebook that I created for EDA purpose and It is in `notebook` section.
 
 ### Output from the Deep Learning Model
 The output of the deep learning model is a file with weights.  The file is called `export.pkl` (or `model.pkl`).  If you train the model as in this repo, the model will saved to the `models` folder.  

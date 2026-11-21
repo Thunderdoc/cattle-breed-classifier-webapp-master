@@ -24,7 +24,7 @@ and a production-grade REST API — wrapped in a premium React front-end.
 | **Model card** | Architecture, training protocol, evaluation metrics, limitations & ethics, citation |
 | **UX system** | Dark/light themes, ⌘K command palette, toasts, skeletons, scroll reveals, reduced-motion support, keyboard/a11y friendly, PWA manifest |
 | **Security** | Strict CSP, magic-byte validation, EXIF handling, decompression-bomb guard, SSRF-safe URL fetch, per-IP rate limiting, request IDs |
-| **Ops** | gunicorn config, Docker multi-stage build, compose + nginx sample, GitHub Actions CI, pytest suite (24 tests) |
+| **Ops** | gunicorn config, Docker multi-stage build, compose + nginx sample, GitHub Actions CI, pytest suite (26 tests) |
 
 ---
 
@@ -87,7 +87,7 @@ gunicorn -c gunicorn_conf.py app:app              # prod
 
 ```bash
 make install && make build && make serve
-make test          # 24-test pytest suite
+make test          # 26-test pytest suite
 ```
 
 ### Fetching the trained checkpoint
@@ -184,7 +184,7 @@ Everything is env-overridable (see `.env.example`): `PORT`, `TOP_N_PREDICTIONS`,
 ## 🧪 Tests & CI
 
 ```bash
-python3 -m pytest -q     # 24 tests: API contract, security, engine, imaging
+python3 -m pytest -q     # 26 tests: API contract, security, engine, imaging
 ```
 
 GitHub Actions runs the backend suite (with a front-end build) and a
@@ -194,8 +194,13 @@ front-end build on every push/PR.
 
 ## 🙏 Credits & license
 
-Created and maintained by [Ankit Kumar Singh](https://sajit9285.github.io/myportfolio).
-Every screen, service and script in this repository is his work.
+Created and maintained by [Ankit Kumar Singh](https://ankit-kumar-portfolio-beta.vercel.app)
+([GitHub](https://github.com/Thunderdoc)). The v2.0 rewrite — React front-end,
+`webapp/` Flask service, tests, CI, and the breed encyclopedia — is his work.
+
+The model, dataset, training code and notebooks originate from the 2020
+project by Ajit Kumar Singh:
+[ajitsingh98/cattle-breed-classifier-webapp](https://github.com/ajitsingh98/cattle-breed-classifier-webapp).
 MIT licensed — see [LICENSE](LICENSE). Breed descriptors compiled from NBAGR
 registrations and ICAR/livestock literature; landrace entries are labelled as
 such where formal documentation is limited.

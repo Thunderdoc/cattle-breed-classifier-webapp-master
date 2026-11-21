@@ -13,7 +13,7 @@ version: "2.0.0"
 
 author:
   name: "Ankit Kumar Singh"
-  website: "https://sajit9285.github.io/myportfolio"
+  website: "https://ankit-kumar-portfolio-beta.vercel.app"
 
 about: |
   Bovine AI is a cattle breed classifier built on PyTorch + Flask + React.
@@ -23,10 +23,9 @@ about: |
   checkpoint is absent the service degrades gracefully to a clearly-labelled
   deterministic demo engine so every integration path stays testable.
 
-  - Source code: https://github.com/sajit9285/cattle-breed-classifier-webapp
-  - Original web app: https://cattle-breed-classifier.herokuapp.com
+  - Source code: https://github.com/ajitsingh98/cattle-breed-classifier-webapp
 
-code: "https://github.com/sajit9285/cattle-breed-classifier-webapp"
+code: "https://github.com/ajitsingh98/cattle-breed-classifier-webapp"
 
 # Inference behaviour (env overrides: TOP_N_PREDICTIONS, CONFIDENCE_THRESHOLD,
 # MAX_FILE_SIZE_MB, MAX_IMAGE_DIMENSION, BATCH_MAX_IMAGES)

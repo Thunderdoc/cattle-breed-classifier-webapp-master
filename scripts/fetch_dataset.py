@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Fetch and ingest the full cattle-breed image corpus.
 
-Author: Ankit Kumar Singh <https://sajit9285.github.io/myportfolio>
+Author: Ankit Kumar Singh <https://ankit-kumar-portfolio-beta.vercel.app>
 
 The repository ships a small, hand-verified reference subset under
 ``static/dataset/``.  This script is the production path to the complete

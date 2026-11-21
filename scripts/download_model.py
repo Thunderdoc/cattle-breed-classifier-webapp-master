@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Fetch the trained checkpoint + class list into models/.
 
-Author: Ankit Kumar Singh <https://sajit9285.github.io/myportfolio>
+Author: Ankit Kumar Singh <https://ankit-kumar-portfolio-beta.vercel.app>
 
 Defaults to the original Google Drive locations; override with the
 EXPORT_FILE_URL / EXPORT_CLASSES_URL environment variables to point at your

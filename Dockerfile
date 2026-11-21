@@ -8,7 +8,7 @@ RUN npm run build
 
 # ── Stage 2: python runtime ───────────────────────────────────────────────
 FROM python:3.11-slim AS runtime
-LABEL org.opencontainers.image.authors="Ankit Kumar Singh <https://sajit9285.github.io/myportfolio>"
+LABEL org.opencontainers.image.authors="Ankit Kumar Singh <https://ankit-kumar-portfolio-beta.vercel.app>"
 LABEL org.opencontainers.image.title="Indigenous Cattle Breed Classifier"
 ENV PYTHONUNBUFFERED=1 \
     PYTHONDONTWRITEBYTECODE=1 \
